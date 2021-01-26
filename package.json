@@ -1,6 +1,6 @@
 {
   "name": "node-images-compress-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a image compression tool",
   "main": "index.js",
   "repository": "1",
