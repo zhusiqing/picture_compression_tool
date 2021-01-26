@@ -64,6 +64,11 @@ yarn
 node index <file|dir> [...file|dir]
 ```
 
+## TODO
+
+- [ ] 目前的压缩后统一转换成.jpg格式，后续支持png压缩
+- [ ] 增加本地web版可视化页面工具
+
 ## 执照
 
 [MIT](http://opensource.org/licenses/MIT)
