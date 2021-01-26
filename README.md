@@ -25,11 +25,27 @@ npm i
 ## or
 yarn
 ```
-## 用法
+## 基本用法
 
 ```bash
 node index <file|dir> [...file|dir]
 ```
+
+## 参数
+
+```
+image-compress [options] <path...>
+
+a picture compression tool
+
+Options:
+  -V, --version                                  output the version number
+  -q, --quality  <number>   set picture quality (default: "50")
+  -o, --output  <path>      set picture output path
+  -h, --help                                     display help for command
+
+```
+
 ## 执照
 
 [MIT](http://opensource.org/licenses/MIT)
