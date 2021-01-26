@@ -21,14 +21,17 @@
 ## 安装
 
 ```bash
-npm i
-## or
-yarn
+npm i node-images-compress-cli
+# or
+npm i -g node-images-compress-cli
+
 ```
-## 基本用法
+
+## 基本使用
 
 ```bash
-node index <file|dir> [...file|dir]
+node-images-compress-cli <file|dir> [...file|dir]
+# eg: node-images-compress-cli ./test .bg.jpg
 ```
 
 ## 参数
@@ -43,7 +46,22 @@ Options:
   -q, --quality  <number>   set picture quality (default: "50")
   -o, --output  <path>      set picture output path
   -h, --help                                     display help for command
+```
 
+## 本地执行
+
+1. 依赖安装
+
+```bash
+npm i
+## or
+yarn
+```
+
+2. 执行
+
+```bash
+node index <file|dir> [...file|dir]
 ```
 
 ## 执照
