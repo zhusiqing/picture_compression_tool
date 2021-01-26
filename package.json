@@ -1,0 +1,19 @@
+{
+  "name": "imageCompress",
+  "version": "1.0.0",
+  "description": "a image compression tool",
+  "main": "index.js",
+  "repository": "1",
+  "author": "zhusiqing <zsqmengzhihen@163.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">12.0.0"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "commander": "^7.0.0",
+    "consola": "^2.15.0",
+    "images": "^3.2.3",
+    "ora": "^5.3.0"
+  }
+}
