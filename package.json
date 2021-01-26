@@ -6,6 +6,9 @@
   "repository": "1",
   "author": "zhusiqing <zsqmengzhihen@163.com>",
   "license": "MIT",
+  "bin": {
+    "image-compress": "bin/image-compress.js"
+  },
   "engines": {
     "node": ">12.0.0"
   },

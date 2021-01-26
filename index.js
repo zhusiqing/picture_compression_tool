@@ -16,8 +16,6 @@ let options = {
 }
 const fileQueue = []
 async function run() {
-  console.time('time')
-  const spinner = ora('Compressing...').start()
   program
     .version(chalk.greenBright.bgBlackBright('0.0.1'))
     .option(`-q, --quality ${chalk.yellow.bgBlackBright(' <number> ')}`, 'set picture quality', '50')
@@ -34,6 +32,8 @@ async function run() {
   if (output) {
     options.output = path.join(runPath, output)
   }
+  console.time('time')
+  const spinner = ora('Compressing...').start()
   for (let index = 0; index < options.input.length; index++) {
     const inputPath = options.input[index];
     try {
