@@ -30,7 +30,7 @@ npm i -g node-images-compress-cli
 ## 基本使用
 
 ```bash
-node-images-compress-cli <file|dir> [...file|dir]
+images-compress <file|dir> [...file|dir]
 # eg: node-images-compress-cli ./test .bg.jpg
 ```
 
