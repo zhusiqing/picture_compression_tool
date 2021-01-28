@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
 const { spawn } = require('child_process')
+const path = require('path')
 
-const p = spawn('./node_modules/.bin/rollup', ['-c'], { stdio: 'inherit' })
-p.on('close', () => {
-  const pp = spawn('node', ['server/index.js', '-p 5002'], { stdio: 'inherit' })
-  pp.on('error', err => {
-    console.log('error', err)
-  })
-  pp.on('close', code => {
-    console.log('close')
-  })
+const projectPath = path.resolve(process.argv[1], '../../lib/node_modules/node-images-compress-cli')
+
+const pp = spawn('node', [path.resolve(projectPath, './server/index.js'), '-p 5002'], { stdio: 'inherit' })
+pp.on('error', err => {
+  console.log('error', err)
+})
+pp.on('close', code => {
+  console.log('close')
 })
