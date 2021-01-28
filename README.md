@@ -34,6 +34,12 @@ images-compress <file|dir> [...file|dir]
 # eg: images-compress ./test .bg.jpg
 ```
 
+## 基本web服务使用
+
+```bash
+images-compress-web
+```
+
 ## 参数
 
 ```
