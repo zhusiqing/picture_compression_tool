@@ -9,7 +9,8 @@
   "author": "zhusiqing <zsqmengzhihen@163.com>",
   "license": "MIT",
   "bin": {
-    "image-compress": "bin/image-compress.js"
+    "image-compress": "bin/image-compress.js",
+    "image-compress-web": "bin/image-compress-web.js"
   },
   "scripts": {
     "start": "rollup -c && node server/index.js -p 5002",
