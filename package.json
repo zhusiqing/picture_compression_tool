@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "source": "src/index.jsx",
   "output": "web/index.js",
-  "repository": "1",
+  "repository": "https://github.com/zhusiqing/picture_compression_tool",
   "author": "zhusiqing <zsqmengzhihen@163.com>",
   "license": "MIT",
   "bin": {
