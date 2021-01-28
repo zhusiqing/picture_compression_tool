@@ -1,0 +1,122 @@
+.container {
+  max-width: 1100px;
+  min-width: 500px;
+  margin: 0 auto;
+}
+h1 {
+  text-align: center;
+}
+button {
+  cursor: pointer;
+}
+/* 上传 */
+.upload-box {
+  display: flex;
+  flex-direction: column;
+}
+/* 上传按钮 */
+.upload-btn {
+  border: 1px dashed #ccc;
+  padding: 20px;
+  color: #333;
+  cursor: pointer;
+  text-align: center;
+}
+.upload-btn:hover {
+  border-color: #333;
+}
+.upload-btn.drop {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border-color: #fff;
+}
+/* 上传列表 */
+.upload-list {
+  padding-left: 0;
+  list-style: none;
+}
+.upload-list > li {
+
+}
+.upload-list > li + li {
+  margin-top: 20px;
+}
+.upload-list-item {
+  display: flex;
+  align-items: center;
+}
+.upload-list-item > img {
+  object-fit: cover;
+  margin-right: 20px;
+}
+.upload-list-item > .name {
+  flex: 1;
+  margin-right: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.upload-list-item > .size {
+  color: green;
+  margin-right: 10px;
+}
+.upload-list-item > .handle {
+
+}
+.upload-list-item > .handle > button {
+
+}
+.upload-list-item > .handle > button + button {
+  margin-left: 10px;
+}
+
+.all-upload-handle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.all-upload-handle > button {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px 0;
+}
+/* 下载列表 */
+.download-list-box {
+  padding: 0;
+}
+.download-list {
+  display: flex;
+}
+.download-list + .download-list {
+  margin-top: 10px;
+}
+.download-list > span {
+  display: inline-block;
+  width: 25px;
+  margin-right: 10px;
+}
+.download-list > a {
+  color: #157cc7;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+}
+.download-list > a:hover {
+  color: #12b1cc;
+  text-decoration: underline;
+}
+.download-list .size {
+  color: green;
+}
+.quality-box {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.quality-box .label {}
+.quality-box .quality {
+  width: 240px;
+  height: 32px;
+  padding: 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}

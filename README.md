@@ -64,10 +64,38 @@ yarn
 node index <file|dir> [...file|dir]
 ```
 
+## 本地可视化版本
+
+1. 一键启动
+
+```bash
+yarn start
+```
+
+2. 页面构建
+
+```bash
+yarn build
+```
+
+3. 页面开发
+
+```bash
+yarn dev
+```
+
+4. 服务开发
+
+```bash
+yarn serve
+```
+
 ## TODO
 
+- [x] 增加本地web版可视化页面工具
 - [ ] 目前的压缩后统一转换成.jpg格式，后续支持png压缩
-- [ ] 增加本地web版可视化页面工具
+- [ ] 优化可视化页面
+- [ ] 支持压缩svg格式
 
 ## 执照
 
