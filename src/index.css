@@ -45,9 +45,10 @@ button {
   display: flex;
   align-items: center;
 }
-.upload-list-item > img {
+.upload-list-item > img.thumbnail {
   object-fit: cover;
   margin-right: 20px;
+  cursor: pointer;
 }
 .upload-list-item > .name {
   flex: 1;
@@ -85,6 +86,7 @@ button {
 }
 .download-list {
   display: flex;
+  align-items: center;
 }
 .download-list + .download-list {
   margin-top: 10px;
@@ -93,6 +95,11 @@ button {
   display: inline-block;
   width: 25px;
   margin-right: 10px;
+}
+.download-list > img.thumbnail {
+  cursor: pointer;
+  margin-right: 20px;
+  object-fit: cover;
 }
 .download-list > a {
   color: #157cc7;

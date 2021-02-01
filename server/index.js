@@ -3,10 +3,10 @@ const Multer = require('@koa/multer')
 const staticHandle = require('koa-static')
 const Router = require('@koa/router')
 const consola = require('consola')
-const { join, basename } = require('path')
+const { join, basename, resolve } = require('path')
+const fs = require('fs')
 const { compressImage } = require('../lib')
 const { transformSize } = require('../lib/utils')
-const { lstatSync } = require('fs')
 
 const app = new Koa()
 const router = new Router()
@@ -25,15 +25,28 @@ process.argv.forEach((s, i) => {
     }
   }
 })
+process.on('SIGINT', () => {
+  const rmPath = resolve(__dirname, '../web/images')
+  fs.rmdir(rmPath, {
+    recursive: true
+  }, (err) => {
+    if (err) {
+      console.log(err)
+    }
+    process.exit()
+  })
+})
 app.use(staticHandle(join(__dirname, '../web')))
-router.post('/upload',upload.fields([{ name: 'files' }]), (ctx, next) => {
+
+router.post('/upload',upload.fields([{ name: 'files' }]), async (ctx, next) => {
   const uploadFormData = ctx.files
   const saveFiles = []
   let success = true, msg = null
-  uploadFormData.files.forEach(file => {
+  for (let i = 0; i < uploadFormData.files.length; i++) {
+    const file = uploadFormData.files[i];
     try {
-      const tempPath = compressImage(file)
-      const fileStat = lstatSync(tempPath)
+      const tempPath = await compressImage(file)
+      const fileStat = fs.lstatSync(tempPath)
       const fileUrl = basename(tempPath)
       saveFiles.push({
         url: `/images/${fileUrl}`,
@@ -45,7 +58,23 @@ router.post('/upload',upload.fields([{ name: 'files' }]), (ctx, next) => {
       success = false
       msg = '图片压缩失败'
     }
-  })
+  }
+  // uploadFormData.files.forEach(async file => {
+  //   try {
+  //     const tempPath = await compressImage(file)
+  //     const fileStat = lstatSync(tempPath)
+  //     const fileUrl = basename(tempPath)
+  //     saveFiles.push({
+  //       url: `/images/${fileUrl}`,
+  //       name: fileUrl,
+  //       size: transformSize(fileStat.size)
+  //     })
+  //   } catch (error) {
+  //     consola.error(error)
+  //     success = false
+  //     msg = '图片压缩失败'
+  //   }
+  // })
   if (success) {
     ctx.body = {
       success,
