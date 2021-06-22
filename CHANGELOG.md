@@ -19,11 +19,3 @@
 
 - 命令行图片压缩功能，采用`koa`
 - 基于`commander`命令行操作，`chalk`和`consola`美化命令行操作
-
-## 17.0.0 (October 20, 2020)
-
-Today, we are releasing React 17!
-
-**[Learn more about React 17 and how to update to it on the official React blog.](https://reactjs.org/blog/2020/10/20/react-v17.html)**
-
-### React
