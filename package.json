@@ -8,6 +8,7 @@
   "repository": "https://github.com/zhusiqing/picture_compression_tool",
   "author": "zhusiqing <zsqmengzhihen@163.com>",
   "license": "MIT",
+  "keywords": ["image", "compress", "node", "koa", "imagemin", "react", "cli", "jpg", "png"],
   "bin": {
     "image-compress": "bin/image-compress.js",
     "image-compress-web": "bin/image-compress-web.js"

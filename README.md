@@ -1,4 +1,4 @@
-<h1 align="center">image compression</h1>
+<h1 align="center">node-images-compress-cli</h1>
 
 <div align="center">
   <strong>
