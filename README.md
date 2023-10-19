@@ -58,7 +58,7 @@ a picture compression tool
 
 Options:
   -V, --version                                  output the version number
-  -q, --quality  <number>   set picture quality (default: "50")
+  -q, --quality  <number>   set picture quality, svg is invalid (default: "50")
   -o, --output  <path>      set picture output path
   -h, --help                                     display help for command
 ```
@@ -67,6 +67,7 @@ Options:
 
 - [x] 批量压缩图片
 - [x] 批量压缩文件夹中的图片
+- [x] 支持压缩svg格式，采用```svgo```压缩
 
 ## web服务
 
@@ -93,6 +94,7 @@ images-compress-web --port 5001
 - [x] 批量压缩文件夹中的图片
 - [x] 预览压缩前和预缩后图片
 - [x] 压缩前和压缩后图片大小显示
+- [x] 支持压缩svg格式，采用```svgo```压缩
 
 #### 预览
 
@@ -160,10 +162,10 @@ yarn serve
 
 - [x] 增加本地web版可视化页面工具
 - [x] 目前的压缩后统一转换成.jpg格式，后续支持png压缩
+- [x] 支持压缩svg格式，采用```svgo```压缩
 - [ ] 命令行增加png转jpg，jpg转png
 - [ ] web版增加png和jpg之间互转
 - [ ] 优化可视化页面视觉效果
-- [ ] 支持压缩svg格式，采用```svgo```压缩
 - [ ] 陆续增加一些功能，比如支持cdn？
 
 ## 执照
