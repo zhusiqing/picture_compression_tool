@@ -2366,24 +2366,17 @@ var App = function App() {
   }
 
   function onUploadHandle() {
-    var formData = new FormData();
-    var isAllSvg = true;
-    images.forEach(function (_ref) {
-      var file = _ref.file;
-
-      if (file.type !== 'image/svg+xml') {
-        isAllSvg = false;
-      }
-
-      formData.append('files', file);
-    });
-
-    if (!isAllSvg && !+quality) {
+    if (!+quality) {
       toast.error('jpg/png需要设置正确的压缩图片质量，svg会忽略该选项');
       return;
     }
 
     formData.append('quality', +quality);
+    var formData = new FormData();
+    images.forEach(function (_ref) {
+      var file = _ref.file;
+      formData.append('files', file);
+    });
     toast.promise(fetch('/api/upload', {
       method: 'POST',
       body: formData
