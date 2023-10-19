@@ -166,6 +166,7 @@ yarn serve
 - [ ] 命令行增加png转jpg，jpg转png
 - [ ] web版增加png和jpg之间互转
 - [ ] 优化可视化页面视觉效果
+- [ ] 支持ts
 - [ ] 陆续增加一些功能，比如支持cdn？
 
 ## 执照
