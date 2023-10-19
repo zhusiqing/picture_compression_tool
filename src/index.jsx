@@ -36,12 +36,12 @@ const App = () => {
     quality = e.target.value;
   };
   function onUploadHandle() {
-    if (!+quality) {
+    if (!+quality && quality) {
       toast.error('jpg/png需要设置正确的压缩图片质量，svg会忽略该选项');
       return
     }
-    formData.append('quality', +quality);
     const formData = new FormData();
+    formData.append('quality', +quality);
     images.forEach(({file}) => {
       formData.append('files', file);
     });
