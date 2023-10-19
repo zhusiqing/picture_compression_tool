@@ -59,22 +59,6 @@ router.post('/upload',upload.fields([{ name: 'files' }]), async (ctx, next) => {
       msg = '图片压缩失败'
     }
   }
-  // uploadFormData.files.forEach(async file => {
-  //   try {
-  //     const tempPath = await compressImage(file)
-  //     const fileStat = lstatSync(tempPath)
-  //     const fileUrl = basename(tempPath)
-  //     saveFiles.push({
-  //       url: `/images/${fileUrl}`,
-  //       name: fileUrl,
-  //       size: transformSize(fileStat.size)
-  //     })
-  //   } catch (error) {
-  //     consola.error(error)
-  //     success = false
-  //     msg = '图片压缩失败'
-  //   }
-  // })
   if (success) {
     ctx.body = {
       success,
