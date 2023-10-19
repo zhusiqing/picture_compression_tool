@@ -2366,16 +2366,24 @@ var App = function App() {
   }
 
   function onUploadHandle() {
-    if (!Number(quality) && quality) {
-      toast.error('请输入正确的压缩图片质量');
-      return;
-    }
     var formData = new FormData();
-    formData.append('quality', Number(quality) || 50);
+    var isAllSvg = true;
     images.forEach(function (_ref) {
       var file = _ref.file;
+
+      if (file.type !== 'image/svg+xml') {
+        isAllSvg = false;
+      }
+
       formData.append('files', file);
     });
+
+    if (!isAllSvg && !+quality) {
+      toast.error('jpg/png需要设置正确的压缩图片质量，svg会忽略该选项');
+      return;
+    }
+
+    formData.append('quality', +quality);
     toast.promise(fetch('/api/upload', {
       method: 'POST',
       body: formData
@@ -2417,7 +2425,7 @@ var App = function App() {
     }, /*#__PURE__*/react.createElement("div", _extends_1({
       className: "upload-btn " + (isDragging ? 'drop' : ''),
       onClick: onImageUpload
-    }, dragProps), "\u70B9\u51FB\u6216\u8005\u62D6\u62FD\u56FE\u7247\u5230\u8FD9\u91CC\uFF0C\u652F\u6301jpg/png\u538B\u7F29"), /*#__PURE__*/react.createElement("ol", {
+    }, dragProps), "\u70B9\u51FB\u6216\u8005\u62D6\u62FD\u56FE\u7247\u5230\u8FD9\u91CC\uFF0C\u652F\u6301jpg/png/svg\u538B\u7F29"), /*#__PURE__*/react.createElement("ol", {
       className: "upload-list"
     }, imageList.map(function (image, index) {
       return /*#__PURE__*/react.createElement("li", {

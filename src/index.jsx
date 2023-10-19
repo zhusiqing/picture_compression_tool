@@ -36,15 +36,19 @@ const App = () => {
     quality = e.target.value;
   };
   function onUploadHandle() {
-    if (!Number(quality) && quality) {
-      toast.error('请输入正确的压缩图片质量');
-      return;
-    };
     const formData = new FormData();
-    formData.append('quality', Number(quality) || 50);
+    let isAllSvg = true
     images.forEach(({file}) => {
+      if (file.type !== 'image/svg+xml') {
+        isAllSvg = false
+      }
       formData.append('files', file);
     });
+    if (!isAllSvg && !+quality) {
+      toast.error('jpg/png需要设置正确的压缩图片质量，svg会忽略该选项');
+      return
+    }
+    formData.append('quality', +quality);
     toast.promise(
       fetch('/api/upload', {
         method: 'POST',
@@ -91,7 +95,7 @@ const App = () => {
                 className={`upload-btn ${isDragging ? 'drop' : ''}`}
                 onClick={onImageUpload}
                 {...dragProps}>
-                点击或者拖拽图片到这里，支持jpg/png压缩
+                点击或者拖拽图片到这里，支持jpg/png/svg压缩
               </div>
               <ol className="upload-list">
                 {imageList.map((image, index) => {
