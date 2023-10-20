@@ -21,7 +21,7 @@ const ImgBox = (props) => {
 const App = () => {
   const [images, updateImages] = useState([]);
   const [downloads, updateDownloads] = useState([]);
-  let quality = '';
+  const [quality, updateQuality] = useState('')
   // 最大同时上传100个，单个文件最大100mb
   const maxNumber = 100, maxFileSize = 1024 * 1024 * 100;
   function onChange(imageList, addUpdateIndex) {
@@ -33,7 +33,7 @@ const App = () => {
     };
   };
   function onInputChange(e) {
-    quality = e.target.value;
+    updateQuality(e.target.value)
   };
   function onUploadHandle() {
     if (!+quality && quality) {
@@ -115,7 +115,7 @@ const App = () => {
                   <div className="all-upload-handle">
                     <div className="quality-box">
                       <span className="label">压缩图片质量：</span>
-                      <input className="quality" type="text" placeholder="默认为50，不写则为50" onChange={onInputChange}/>
+                      <input className="quality" type="text" value={quality} placeholder="默认为50，不写则为50" onChange={onInputChange}/>
                     </div>
                     <button onClick={onUploadHandle}>上传</button>
                     <button onClick={onImageRemoveAll}>全部删除</button>

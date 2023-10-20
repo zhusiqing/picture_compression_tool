@@ -2346,7 +2346,10 @@ var App = function App() {
       downloads = _useState3[0],
       updateDownloads = _useState3[1];
 
-  var quality = ''; // 最大同时上传100个，单个文件最大100mb
+  var _useState4 = react.useState(''),
+      quality = _useState4[0],
+      updateQuality = _useState4[1]; // 最大同时上传100个，单个文件最大100mb
+
 
   var maxNumber = 100,
       maxFileSize = 1024 * 1024 * 100;
@@ -2362,17 +2365,17 @@ var App = function App() {
   }
 
   function onInputChange(e) {
-    quality = e.target.value;
+    updateQuality(e.target.value);
   }
 
   function onUploadHandle() {
-    if (!+quality) {
+    if (!+quality && quality) {
       toast.error('jpg/png需要设置正确的压缩图片质量，svg会忽略该选项');
       return;
     }
 
-    formData.append('quality', +quality);
     var formData = new FormData();
+    formData.append('quality', +quality);
     images.forEach(function (_ref) {
       var file = _ref.file;
       formData.append('files', file);
@@ -2451,6 +2454,7 @@ var App = function App() {
     }, "\u538B\u7F29\u56FE\u7247\u8D28\u91CF\uFF1A"), /*#__PURE__*/react.createElement("input", {
       className: "quality",
       type: "text",
+      value: quality,
       placeholder: "\u9ED8\u8BA4\u4E3A50\uFF0C\u4E0D\u5199\u5219\u4E3A50",
       onChange: onInputChange
     })), /*#__PURE__*/react.createElement("button", {

@@ -39,13 +39,14 @@ process.on('SIGINT', () => {
 app.use(staticHandle(join(__dirname, '../web')))
 
 router.post('/upload',upload.fields([{ name: 'files' }]), async (ctx, next) => {
+  const quality = +ctx.request.body?.quality || 50
   const uploadFormData = ctx.files
   const saveFiles = []
   let success = true, msg = null
   for (let i = 0; i < uploadFormData.files.length; i++) {
     const file = uploadFormData.files[i];
     try {
-      const tempPath = await compressImage(file)
+      const tempPath = await compressImage(file, +quality)
       const fileStat = fs.lstatSync(tempPath)
       const fileUrl = basename(tempPath)
       saveFiles.push({
