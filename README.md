@@ -47,7 +47,7 @@ images-compress <file|dir> [...file|dir]
 # eg: images-compress ./test .bg.jpg
 ```
 
-> 注意：目前参数为文件夹目录时，只支持一层遍历压缩
+> 注意：目前参数为文件夹目录时，支持嵌套目录
 
 #### 参数
 
