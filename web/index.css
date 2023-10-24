@@ -1,133 +1,3 @@
-.container {
-  max-width: 1100px;
-  min-width: 500px;
-  margin: 0 auto;
-}
-h1 {
-  text-align: center;
-}
-button {
-  cursor: pointer;
-}
-/* 上传 */
-.upload-box {
-  display: flex;
-  flex-direction: column;
-}
-/* 上传按钮 */
-.upload-btn {
-  border: 1px dashed #ccc;
-  padding: 20px;
-  color: #333;
-  cursor: pointer;
-  text-align: center;
-}
-.upload-btn:hover {
-  border-color: #333;
-}
-.upload-btn.drop {
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  border-color: #fff;
-}
-/* 上传列表 */
-.upload-list {
-  padding-left: 0;
-  list-style: none;
-}
-.upload-list > li {
-
-}
-.upload-list > li + li {
-  margin-top: 20px;
-}
-.upload-list-item {
-  display: flex;
-  align-items: center;
-}
-.upload-list-item > img.thumbnail {
-  object-fit: cover;
-  margin-right: 20px;
-  cursor: pointer;
-}
-.upload-list-item > .name {
-  flex: 1;
-  margin-right: 10px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.upload-list-item > .size {
-  color: green;
-  margin-right: 10px;
-}
-.upload-list-item > .handle {
-
-}
-.upload-list-item > .handle > button {
-
-}
-.upload-list-item > .handle > button + button {
-  margin-left: 10px;
-}
-
-.all-upload-handle {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.all-upload-handle > button {
-  width: 100%;
-  margin-bottom: 20px;
-  padding: 10px 0;
-}
-/* 下载列表 */
-.download-list-box {
-  padding: 0;
-}
-.download-list {
-  display: flex;
-  align-items: center;
-}
-.download-list + .download-list {
-  margin-top: 10px;
-}
-.download-list > span {
-  display: inline-block;
-  width: 25px;
-  margin-right: 10px;
-}
-.download-list > img.thumbnail {
-  cursor: pointer;
-  margin-right: 20px;
-  object-fit: cover;
-}
-.download-list > a {
-  color: #157cc7;
-  flex: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-decoration: none;
-}
-.download-list > a:hover {
-  color: #12b1cc;
-  text-decoration: underline;
-}
-.download-list .size {
-  color: green;
-}
-.quality-box {
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-.quality-box .label {}
-.quality-box .quality {
-  width: 240px;
-  height: 32px;
-  padding: 0 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
 
 .lb-icon-close{
   background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgaGVpZ2h0PSIxMDAwIiB3aWR0aD0iMTAwMCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgo8bWV0YWRhdGE+SWNvRm9udCBJY29uczwvbWV0YWRhdGE+Cjx0aXRsZT5jbG9zZS1saW5lPC90aXRsZT4KPGdseXBoIGdseXBoLW5hbWU9ImNsb3NlLWxpbmUiIHVuaWNvZGU9IiYjeGVlZTE7IiBob3Jpei1hZHYteD0iMTAwMCIgLz4KPHBhdGggIGZpbGw9IiNmZmZmZmYiIGQ9Ik03NjIuNSAyMDBsMzcuNSAzNy41LTI2Mi41IDI2Mi41IDI2Mi41IDI2Mi41LTM3LjUgMzcuNS0yNjIuNS0yNjIuNS0yNjIuNSAyNjIuNS0zNy41LTM3LjUgMjYyLjUtMjYyLjUtMjYyLjUtMjYyLjUgMzcuNS0zNy41IDI2Mi41IDI2Mi41eiIvPgo8L3N2Zz4=");
@@ -282,4 +152,134 @@ button {
   .lb-canvas .lb-img{
       max-height: 60vh;
   }
+}
+
+.container {
+  max-width: 1100px;
+  min-width: 500px;
+  margin: 0 auto;
+}
+h1 {
+  text-align: center;
+}
+button {
+  cursor: pointer;
+}
+/* 上传 */
+.upload-box {
+  display: flex;
+  flex-direction: column;
+}
+/* 上传按钮 */
+.upload-btn {
+  border: 1px dashed #ccc;
+  padding: 20px;
+  color: #333;
+  cursor: pointer;
+  text-align: center;
+}
+.upload-btn:hover {
+  border-color: #333;
+}
+.upload-btn.drop {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border-color: #fff;
+}
+/* 上传列表 */
+.upload-list {
+  padding-left: 0;
+  list-style: none;
+}
+.upload-list > li {
+
+}
+.upload-list > li + li {
+  margin-top: 20px;
+}
+.upload-list-item {
+  display: flex;
+  align-items: center;
+}
+.upload-list-item > img.thumbnail {
+  object-fit: cover;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.upload-list-item > .name {
+  flex: 1;
+  margin-right: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.upload-list-item > .size {
+  color: green;
+  margin-right: 10px;
+}
+.upload-list-item > .handle {
+
+}
+.upload-list-item > .handle > button {
+
+}
+.upload-list-item > .handle > button + button {
+  margin-left: 10px;
+}
+
+.all-upload-handle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.all-upload-handle > button {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px 0;
+}
+/* 下载列表 */
+.download-list-box {
+  padding: 0;
+}
+.download-list {
+  display: flex;
+  align-items: center;
+}
+.download-list + .download-list {
+  margin-top: 10px;
+}
+.download-list > span {
+  display: inline-block;
+  width: 25px;
+  margin-right: 10px;
+}
+.download-list > img.thumbnail {
+  cursor: pointer;
+  margin-right: 20px;
+  object-fit: cover;
+}
+.download-list > a {
+  color: #157cc7;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+}
+.download-list > a:hover {
+  color: #12b1cc;
+  text-decoration: underline;
+}
+.download-list .size {
+  color: green;
+}
+.quality-box {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.quality-box .label {}
+.quality-box .quality {
+  width: 240px;
+  height: 32px;
+  padding: 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }

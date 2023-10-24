@@ -1,31 +1,79 @@
-var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
-
-function createCommonjsModule(fn) {
-  var module = { exports: {} };
-	return fn(module, module.exports), module.exports;
-}
-
-var _extends_1 = createCommonjsModule(function (module) {
-function _extends() {
-  module.exports = _extends = Object.assign || function (target) {
+function _extends$1() {
+  _extends$1 = Object.assign ? Object.assign.bind() : function (target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
-
       for (var key in source) {
         if (Object.prototype.hasOwnProperty.call(source, key)) {
           target[key] = source[key];
         }
       }
     }
-
     return target;
   };
-
-  return _extends.apply(this, arguments);
+  return _extends$1.apply(this, arguments);
 }
 
-module.exports = _extends;
-});
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _iterableToArrayLimit(r, l) {
+  var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
+  if (null != t) {
+    var e,
+      n,
+      i,
+      u,
+      a = [],
+      f = !0,
+      o = !1;
+    try {
+      if (i = (t = t.call(r)).next, 0 === l) {
+        if (Object(t) !== t) return;
+        f = !1;
+      } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0);
+    } catch (r) {
+      o = !0, n = r;
+    } finally {
+      try {
+        if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return;
+      } finally {
+        if (o) throw n;
+      }
+    }
+    return a;
+  }
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+  return arr2;
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+}
+
+var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+
+function createCommonjsModule(fn) {
+  var module = { exports: {} };
+	return fn(module, module.exports), module.exports;
+}
 
 /*
 object-assign
@@ -116,7 +164,7 @@ var objectAssign = shouldUseNative() ? Object.assign : function (target, source)
 	return to;
 };
 
-/** @license React v17.0.1
+/** @license React v17.0.2
  * react.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -140,10 +188,10 @@ exports.Children={map:P,forEach:function(a,b,c){P(a,function(){b.apply(this,argu
 exports.cloneElement=function(a,b,c){if(null===a||void 0===a)throw Error(z(267,a));var e=objectAssign({},a.props),d=a.key,k=a.ref,h=a._owner;if(null!=b){void 0!==b.ref&&(k=b.ref,h=G.current);void 0!==b.key&&(d=""+b.key);if(a.type&&a.type.defaultProps)var g=a.type.defaultProps;for(f in b)H.call(b,f)&&!I.hasOwnProperty(f)&&(e[f]=void 0===b[f]&&void 0!==g?g[f]:b[f]);}var f=arguments.length-2;if(1===f)e.children=c;else if(1<f){g=Array(f);for(var m=0;m<f;m++)g[m]=arguments[m+2];e.children=g;}return {$$typeof:n,type:a.type,
 key:d,ref:k,props:e,_owner:h}};exports.createContext=function(a,b){void 0===b&&(b=null);a={$$typeof:r,_calculateChangedBits:b,_currentValue:a,_currentValue2:a,_threadCount:0,Provider:null,Consumer:null};a.Provider={$$typeof:q,_context:a};return a.Consumer=a};exports.createElement=J;exports.createFactory=function(a){var b=J.bind(null,a);b.type=a;return b};exports.createRef=function(){return {current:null}};exports.forwardRef=function(a){return {$$typeof:t,render:a}};exports.isValidElement=L;
 exports.lazy=function(a){return {$$typeof:v,_payload:{_status:-1,_result:a},_init:Q}};exports.memo=function(a,b){return {$$typeof:u,type:a,compare:void 0===b?null:b}};exports.useCallback=function(a,b){return S().useCallback(a,b)};exports.useContext=function(a,b){return S().useContext(a,b)};exports.useDebugValue=function(){};exports.useEffect=function(a,b){return S().useEffect(a,b)};exports.useImperativeHandle=function(a,b,c){return S().useImperativeHandle(a,b,c)};
-exports.useLayoutEffect=function(a,b){return S().useLayoutEffect(a,b)};exports.useMemo=function(a,b){return S().useMemo(a,b)};exports.useReducer=function(a,b,c){return S().useReducer(a,b,c)};exports.useRef=function(a){return S().useRef(a)};exports.useState=function(a){return S().useState(a)};exports.version="17.0.1";
+exports.useLayoutEffect=function(a,b){return S().useLayoutEffect(a,b)};exports.useMemo=function(a,b){return S().useMemo(a,b)};exports.useReducer=function(a,b,c){return S().useReducer(a,b,c)};exports.useRef=function(a){return S().useRef(a)};exports.useState=function(a){return S().useState(a)};exports.version="17.0.2";
 });
 
-/** @license React v17.0.1
+/** @license React v17.0.2
  * react.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -162,7 +210,7 @@ var react = createCommonjsModule(function (module) {
 }
 });
 
-/** @license React v0.20.1
+/** @license React v0.20.2
  * scheduler.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -186,7 +234,7 @@ exports.unstable_scheduleCallback=function(a,b,c){var d=exports.unstable_now();"
 exports.unstable_wrapCallback=function(a){var b=P;return function(){var c=P;P=b;try{return a.apply(this,arguments)}finally{P=c;}}};
 });
 
-/** @license React v0.20.1
+/** @license React v0.20.2
  * scheduler.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -205,7 +253,7 @@ var scheduler = createCommonjsModule(function (module) {
 }
 });
 
-/** @license React v17.0.1
+/** @license React v17.0.2
  * react-dom.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -493,12 +541,12 @@ function sk(a,b){b||(b=a?9===a.nodeType?a.documentElement:a.firstChild:null,b=!(
 function tk(a,b,c,d,e){var f=c._reactRootContainer;if(f){var g=f._internalRoot;if("function"===typeof e){var h=e;e=function(){var a=mk(g);h.call(a);};}lk(b,g,a,e);}else {f=c._reactRootContainer=sk(c,d);g=f._internalRoot;if("function"===typeof e){var k=e;e=function(){var a=mk(g);k.call(a);};}Xj(function(){lk(b,g,a,e);});}return mk(g)}ec=function(a){if(13===a.tag){var b=Hg();Jg(a,4,b);ok(a,4);}};fc=function(a){if(13===a.tag){var b=Hg();Jg(a,67108864,b);ok(a,67108864);}};
 gc=function(a){if(13===a.tag){var b=Hg(),c=Ig(a);Jg(a,c,b);ok(a,c);}};hc=function(a,b){return b()};
 yb=function(a,b,c){switch(b){case "input":ab(a,c);b=c.name;if("radio"===c.type&&null!=b){for(c=a;c.parentNode;)c=c.parentNode;c=c.querySelectorAll("input[name="+JSON.stringify(""+b)+'][type="radio"]');for(b=0;b<c.length;b++){var d=c[b];if(d!==a&&d.form===a.form){var e=Db(d);if(!e)throw Error(y(90));Wa(d);ab(d,e);}}}break;case "textarea":ib(a,c);break;case "select":b=c.value,null!=b&&fb(a,!!c.multiple,b,!1);}};Gb=Wj;
-Hb=function(a,b,c,d,e){var f=X;X|=4;try{return gg(98,a.bind(null,b,c,d,e))}finally{X=f,0===X&&(wj(),ig());}};Ib=function(){0===(X&49)&&(Vj(),Oj());};Jb=function(a,b){var c=X;X|=2;try{return a(b)}finally{X=c,0===X&&(wj(),ig());}};function uk(a,b){var c=2<arguments.length&&void 0!==arguments[2]?arguments[2]:null;if(!rk(b))throw Error(y(200));return kk(a,b,null,c)}var vk={Events:[Cb,ue,Db,Eb,Fb,Oj,{current:!1}]},wk={findFiberByHostInstance:wc,bundleType:0,version:"17.0.1",rendererPackageName:"react-dom"};
+Hb=function(a,b,c,d,e){var f=X;X|=4;try{return gg(98,a.bind(null,b,c,d,e))}finally{X=f,0===X&&(wj(),ig());}};Ib=function(){0===(X&49)&&(Vj(),Oj());};Jb=function(a,b){var c=X;X|=2;try{return a(b)}finally{X=c,0===X&&(wj(),ig());}};function uk(a,b){var c=2<arguments.length&&void 0!==arguments[2]?arguments[2]:null;if(!rk(b))throw Error(y(200));return kk(a,b,null,c)}var vk={Events:[Cb,ue,Db,Eb,Fb,Oj,{current:!1}]},wk={findFiberByHostInstance:wc,bundleType:0,version:"17.0.2",rendererPackageName:"react-dom"};
 var xk={bundleType:wk.bundleType,version:wk.version,rendererPackageName:wk.rendererPackageName,rendererConfig:wk.rendererConfig,overrideHookState:null,overrideHookStateDeletePath:null,overrideHookStateRenamePath:null,overrideProps:null,overridePropsDeletePath:null,overridePropsRenamePath:null,setSuspenseHandler:null,scheduleUpdate:null,currentDispatcherRef:ra.ReactCurrentDispatcher,findHostInstanceByFiber:function(a){a=cc(a);return null===a?null:a.stateNode},findFiberByHostInstance:wk.findFiberByHostInstance||
 pk,findHostInstancesForRefresh:null,scheduleRefresh:null,scheduleRoot:null,setRefreshHandler:null,getCurrentFiber:null};if("undefined"!==typeof __REACT_DEVTOOLS_GLOBAL_HOOK__){var yk=__REACT_DEVTOOLS_GLOBAL_HOOK__;if(!yk.isDisabled&&yk.supportsFiber)try{Lf=yk.inject(xk),Mf=yk;}catch(a){}}var __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED=vk;var createPortal=uk;
 var findDOMNode=function(a){if(null==a)return null;if(1===a.nodeType)return a;var b=a._reactInternals;if(void 0===b){if("function"===typeof a.render)throw Error(y(188));throw Error(y(268,Object.keys(a)));}a=cc(b);a=null===a?null:a.stateNode;return a};var flushSync=function(a,b){var c=X;if(0!==(c&48))return a(b);X|=1;try{if(a)return gg(99,a.bind(null,b))}finally{X=c,ig();}};var hydrate=function(a,b,c){if(!rk(b))throw Error(y(200));return tk(null,a,b,!0,c)};
 var render=function(a,b,c){if(!rk(b))throw Error(y(200));return tk(null,a,b,!1,c)};var unmountComponentAtNode=function(a){if(!rk(a))throw Error(y(40));return a._reactRootContainer?(Xj(function(){tk(null,null,a,!1,function(){a._reactRootContainer=null;a[ff]=null;});}),!0):!1};var unstable_batchedUpdates=Wj;var unstable_createPortal=function(a,b){return uk(a,b,2<arguments.length&&void 0!==arguments[2]?arguments[2]:null)};
-var unstable_renderSubtreeIntoContainer=function(a,b,c,d){if(!rk(c))throw Error(y(200));if(null==a||void 0===a._reactInternals)throw Error(y(38));return tk(a,b,c,!1,d)};var version="17.0.1";
+var unstable_renderSubtreeIntoContainer=function(a,b,c,d){if(!rk(c))throw Error(y(200));if(null==a||void 0===a._reactInternals)throw Error(y(38));return tk(a,b,c,!1,d)};var version="17.0.2";
 
 var reactDom_production_min = {
 	__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED,
@@ -514,7 +562,7 @@ var reactDom_production_min = {
 	version: version
 };
 
-/** @license React v0.20.1
+/** @license React v0.20.2
  * scheduler-tracing.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -522,7 +570,7 @@ var reactDom_production_min = {
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var b=0;var __interactionsRef=null;var __subscriberRef=null;var unstable_clear=function(a){return a()};var unstable_getCurrent=function(){return null};var unstable_getThreadID=function(){return ++b};var unstable_subscribe=function(){};var unstable_trace=function(a,d,c){return c()};var unstable_unsubscribe=function(){};var unstable_wrap=function(a){return a};
+var b$1=0;var __interactionsRef=null;var __subscriberRef=null;var unstable_clear=function(a){return a()};var unstable_getCurrent=function(){return null};var unstable_getThreadID=function(){return ++b$1};var unstable_subscribe=function(){};var unstable_trace=function(a,d,c){return c()};var unstable_unsubscribe=function(){};var unstable_wrap=function(a){return a};
 
 var schedulerTracing_production_min = {
 	__interactionsRef: __interactionsRef,
@@ -536,7 +584,7 @@ var schedulerTracing_production_min = {
 	unstable_wrap: unstable_wrap
 };
 
-/** @license React v0.20.1
+/** @license React v0.20.2
  * scheduler-tracing.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -555,7 +603,7 @@ createCommonjsModule(function (module) {
 }
 });
 
-/** @license React v17.0.1
+/** @license React v17.0.2
  * react-dom.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -602,10 +650,12 @@ exports.openFileDialog = function (inputRef) {
     if (inputRef.current)
         inputRef.current.click();
 };
-exports.getAcceptTypeString = function (acceptType) {
-    return acceptType && acceptType.length > 0
-        ? acceptType.map(function (item) { return "." + item; }).join(', ')
-        : 'image/*';
+exports.getAcceptTypeString = function (acceptType, allowNonImageType) {
+    if (acceptType === null || acceptType === void 0 ? void 0 : acceptType.length)
+        return acceptType.map(function (item) { return "." + item; }).join(', ');
+    if (allowNonImageType)
+        return '';
+    return 'image/*';
 };
 exports.getBase64 = function (file) {
     var reader = new FileReader();
@@ -623,7 +673,7 @@ exports.getImage = function (file) {
 };
 exports.getListFiles = function (files, dataURLKey) {
     var promiseFiles = [];
-    for (var i = 0; i < files.length; i++) {
+    for (var i = 0; i < files.length; i += 1) {
         promiseFiles.push(exports.getBase64(files[i]));
     }
     return Promise.all(promiseFiles).then(function (fileListBase64) {
@@ -637,7 +687,6 @@ exports.getListFiles = function (files, dataURLKey) {
         return fileList;
     });
 };
-
 });
 
 var constants = createCommonjsModule(function (module, exports) {
@@ -646,7 +695,6 @@ exports.DEFAULT_DATA_URL_KEY = exports.INIT_MAX_NUMBER = exports.DEFAULT_NULL_IN
 exports.DEFAULT_NULL_INDEX = -1;
 exports.INIT_MAX_NUMBER = 1000;
 exports.DEFAULT_DATA_URL_KEY = 'dataURL';
-
 });
 
 var validation = createCommonjsModule(function (module, exports) {
@@ -744,14 +792,12 @@ exports.isMaxNumberValid = function (totalNumber, maxNumber, keyUpdate) {
         if (totalNumber <= maxNumber)
             return true;
     }
-    else {
-        if (totalNumber <= maxNumber + 1)
-            return true;
-    }
+    else if (totalNumber <= maxNumber + 1)
+        return true;
     return false;
 };
 exports.getErrorValidation = function (_a) {
-    var fileList = _a.fileList, value = _a.value, maxNumber = _a.maxNumber, keyUpdate = _a.keyUpdate, acceptType = _a.acceptType, maxFileSize = _a.maxFileSize, resolutionType = _a.resolutionType, resolutionWidth = _a.resolutionWidth, resolutionHeight = _a.resolutionHeight;
+    var fileList = _a.fileList, value = _a.value, maxNumber = _a.maxNumber, keyUpdate = _a.keyUpdate, acceptType = _a.acceptType, maxFileSize = _a.maxFileSize, resolutionType = _a.resolutionType, resolutionWidth = _a.resolutionWidth, resolutionHeight = _a.resolutionHeight, allowNonImageType = _a.allowNonImageType;
     return __awaiter(void 0, void 0, void 0, function () {
         var newErrors, i, file, image, checkRes;
         return __generator(this, function (_b) {
@@ -769,7 +815,7 @@ exports.getErrorValidation = function (_a) {
                     file = fileList[i].file;
                     if (!file)
                         return [3 /*break*/, 4];
-                    if (!exports.isImageValid(file.type)) {
+                    if (!allowNonImageType && !exports.isImageValid(file.type)) {
                         newErrors.acceptType = true;
                         return [3 /*break*/, 5];
                     }
@@ -792,7 +838,7 @@ exports.getErrorValidation = function (_a) {
                     }
                     _b.label = 4;
                 case 4:
-                    i++;
+                    i += 1;
                     return [3 /*break*/, 2];
                 case 5:
                     if (Object.values(newErrors).find(Boolean))
@@ -802,9 +848,19 @@ exports.getErrorValidation = function (_a) {
         });
     });
 };
-
 });
 
+var __assign = (commonjsGlobal && commonjsGlobal.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __createBinding = (commonjsGlobal && commonjsGlobal.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
@@ -873,12 +929,12 @@ var react_1 = __importStar(react);
 
 
 var ReactImageUploading = function (_a) {
-    var _b = _a.value, value = _b === void 0 ? [] : _b, onChange = _a.onChange, onError = _a.onError, children = _a.children, _c = _a.dataURLKey, dataURLKey = _c === void 0 ? constants.DEFAULT_DATA_URL_KEY : _c, _d = _a.multiple, multiple = _d === void 0 ? false : _d, _e = _a.maxNumber, maxNumber = _e === void 0 ? constants.INIT_MAX_NUMBER : _e, acceptType = _a.acceptType, maxFileSize = _a.maxFileSize, resolutionWidth = _a.resolutionWidth, resolutionHeight = _a.resolutionHeight, resolutionType = _a.resolutionType;
+    var _b = _a.value, value = _b === void 0 ? [] : _b, onChange = _a.onChange, onError = _a.onError, children = _a.children, _c = _a.dataURLKey, dataURLKey = _c === void 0 ? constants.DEFAULT_DATA_URL_KEY : _c, _d = _a.multiple, multiple = _d === void 0 ? false : _d, _e = _a.maxNumber, maxNumber = _e === void 0 ? constants.INIT_MAX_NUMBER : _e, acceptType = _a.acceptType, maxFileSize = _a.maxFileSize, resolutionWidth = _a.resolutionWidth, resolutionHeight = _a.resolutionHeight, resolutionType = _a.resolutionType, _f = _a.inputProps, inputProps = _f === void 0 ? {} : _f, _g = _a.allowNonImageType, allowNonImageType = _g === void 0 ? false : _g;
     var inValue = value || [];
     var inputRef = react_1.useRef(null);
-    var _f = react_1.useState(constants.DEFAULT_NULL_INDEX), keyUpdate = _f[0], setKeyUpdate = _f[1];
-    var _g = react_1.useState(null), errors = _g[0], setErrors = _g[1];
-    var _h = react_1.useState(false), isDragging = _h[0], setIsDragging = _h[1];
+    var _h = react_1.useState(constants.DEFAULT_NULL_INDEX), keyUpdate = _h[0], setKeyUpdate = _h[1];
+    var _j = react_1.useState(null), errors = _j[0], setErrors = _j[1];
+    var _k = react_1.useState(false), isDragging = _k[0], setIsDragging = _k[1];
     var handleClickInput = react_1.useCallback(function () { return utils.openFileDialog(inputRef); }, [
         inputRef,
     ]);
@@ -887,7 +943,7 @@ var ReactImageUploading = function (_a) {
         handleClickInput();
     }, [handleClickInput]);
     var onImageRemoveAll = react_1.useCallback(function () {
-        onChange && onChange([]);
+        onChange === null || onChange === void 0 ? void 0 : onChange([]);
     }, [onChange]);
     var onImageRemove = function (index) {
         var updatedList = __spreadArrays(inValue);
@@ -899,7 +955,7 @@ var ReactImageUploading = function (_a) {
         else {
             updatedList.splice(index, 1);
         }
-        onChange && onChange(updatedList);
+        onChange === null || onChange === void 0 ? void 0 : onChange(updatedList);
     };
     var onImageUpdate = function (index) {
         setKeyUpdate(index);
@@ -919,12 +975,13 @@ var ReactImageUploading = function (_a) {
                         resolutionWidth: resolutionWidth,
                         resolutionHeight: resolutionHeight,
                         value: inValue,
+                        allowNonImageType: allowNonImageType,
                     })];
                 case 1:
                     errorsValidation = _a.sent();
                     if (errorsValidation) {
                         setErrors(errorsValidation);
-                        onError && onError(errorsValidation, fileList);
+                        onError === null || onError === void 0 ? void 0 : onError(errorsValidation, fileList);
                         return [2 /*return*/, false];
                     }
                     errors && setErrors(null);
@@ -933,7 +990,7 @@ var ReactImageUploading = function (_a) {
         });
     }); };
     var handleChange = function (files) { return __awaiter(void 0, void 0, void 0, function () {
-        var fileList, checkValidate, updatedFileList, updatedIndexes, i;
+        var fileList, checkValidate, updatedFileList, updatedIndexes, firstFile, i;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -951,23 +1008,22 @@ var ReactImageUploading = function (_a) {
                         return [2 /*return*/];
                     updatedIndexes = [];
                     if (keyUpdate > constants.DEFAULT_NULL_INDEX) {
+                        firstFile = fileList[0];
                         updatedFileList = __spreadArrays(inValue);
-                        updatedFileList[keyUpdate] = fileList[0];
+                        updatedFileList[keyUpdate] = firstFile;
                         updatedIndexes.push(keyUpdate);
                     }
-                    else {
-                        if (multiple) {
-                            updatedFileList = __spreadArrays(inValue, fileList);
-                            for (i = inValue.length; i < updatedFileList.length; i++) {
-                                updatedIndexes.push(i);
-                            }
-                        }
-                        else {
-                            updatedFileList = [fileList[0]];
-                            updatedIndexes.push(0);
+                    else if (multiple) {
+                        updatedFileList = __spreadArrays(inValue, fileList);
+                        for (i = inValue.length; i < updatedFileList.length; i += 1) {
+                            updatedIndexes.push(i);
                         }
                     }
-                    onChange && onChange(updatedFileList, updatedIndexes);
+                    else {
+                        updatedFileList = [fileList[0]];
+                        updatedIndexes.push(0);
+                    }
+                    onChange === null || onChange === void 0 ? void 0 : onChange(updatedFileList, updatedIndexes);
                     return [2 /*return*/];
             }
         });
@@ -985,9 +1041,7 @@ var ReactImageUploading = function (_a) {
             }
         });
     }); };
-    var acceptTypeString = react_1.useMemo(function () { return utils.getAcceptTypeString(acceptType); }, [
-        acceptType,
-    ]);
+    var acceptTypeString = react_1.useMemo(function () { return utils.getAcceptTypeString(acceptType, allowNonImageType); }, [acceptType, allowNonImageType]);
     var handleDrag = function (e) {
         e.preventDefault();
         e.stopPropagation();
@@ -1010,31 +1064,35 @@ var ReactImageUploading = function (_a) {
         setIsDragging(false);
         if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
             handleChange(e.dataTransfer.files);
-            e.dataTransfer.clearData();
         }
     };
+    var handleDragStart = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.dataTransfer.clearData();
+    };
     return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement("input", { type: "file", accept: acceptTypeString, ref: inputRef, multiple: multiple && keyUpdate === constants.DEFAULT_NULL_INDEX, onChange: onInputChange, style: { display: 'none' } }),
-        children &&
-            children({
-                imageList: inValue,
-                onImageUpload: onImageUpload,
-                onImageRemoveAll: onImageRemoveAll,
-                onImageUpdate: onImageUpdate,
-                onImageRemove: onImageRemove,
-                errors: errors,
-                dragProps: {
-                    onDrop: handleDrop,
-                    onDragEnter: handleDragIn,
-                    onDragLeave: handleDragOut,
-                    onDragOver: handleDrag,
-                },
-                isDragging: isDragging,
-            })));
+        react_1.default.createElement("input", __assign({ type: "file", accept: acceptTypeString, ref: inputRef, multiple: multiple && keyUpdate === constants.DEFAULT_NULL_INDEX, onChange: onInputChange, style: { display: 'none' } }, inputProps)), children === null || children === void 0 ? void 0 :
+        children({
+            imageList: inValue,
+            onImageUpload: onImageUpload,
+            onImageRemoveAll: onImageRemoveAll,
+            onImageUpdate: onImageUpdate,
+            onImageRemove: onImageRemove,
+            errors: errors,
+            dragProps: {
+                onDrop: handleDrop,
+                onDragEnter: handleDragIn,
+                onDragLeave: handleDragOut,
+                onDragOver: handleDrag,
+                onDragStart: handleDragStart,
+            },
+            isDragging: isDragging,
+        })));
 };
 var _default = ReactImageUploading;
 
-let e={data:""},t=t=>{if("undefined"!=typeof window){let e=t?t.querySelector("#_goober"):window._goober;return e||(e=(t||document.head).appendChild(document.createElement("style")),e.innerHTML=" ",e.id="_goober"),e.firstChild}return t||e},l=/(?:([A-Z0-9-%@]+) *:? *([^{;]+?);|([^;}{]*?) *{)|(})/gi,a=/\/\*[\s\S]*?\*\/|\s{2,}|\n/gm,n=(e,t)=>{let r,l="",a="",o="";for(let c in e){let s=e[c];"object"==typeof s?(r=t?t.replace(/([^,])+/g,e=>c.replace(/([^,])+/g,t=>/&/g.test(t)?t.replace(/&/g,e):e?e+" "+t:t)):c,a+="@"==c[0]?"f"==c[1]?n(s,c):c+"{"+n(s,"k"==c[1]?"":t)+"}":n(s,r)):"@"==c[0]&&"i"==c[1]?l=c+" "+s+";":o+=n.p?n.p(c.replace(/[A-Z]/g,"-$&").toLowerCase(),s):c.replace(/[A-Z]/g,"-$&").toLowerCase()+":"+s+";";}return o[0]?(r=t?t+"{"+o+"}":o,l+r+a):l+a},o={},c=e=>{let t="";for(let r in e)t+=r+("object"==typeof e[r]?c(e[r]):e[r]);return t},s=(e,t,r,s,i)=>{let p="object"==typeof e?c(e):e,u=o[p]||(o[p]="go"+p.split("").reduce((e,t)=>101*e+t.charCodeAt(0)>>>0,11));if(!o[u]){let t="object"==typeof e?e:(e=>{let t,r=[{}];for(;t=l.exec(e.replace(a,""));)t[4]&&r.shift(),t[3]?r.unshift(r[0][t[3]]=r[0][t[3]]||{}):t[4]||(r[0][t[1]]=t[2]);return r[0]})(e);o[u]=n(i?{["@keyframes "+u]:t}:t,r?"":"."+u);}return ((e,t,r)=>{-1==t.data.indexOf(e)&&(t.data=r?e+t.data:t.data+e);})(o[u],t,s),u},i=(e,t,r)=>e.reduce((e,l,a)=>{let o=t[a];if(o&&o.call){let e=o(r),t=e&&e.props&&e.props.className||/^go/.test(e)&&e;o=t?"."+t:e&&"object"==typeof e?e.props?"":n(e,""):e;}return e+l+(null==o?"":o)},"");function p(e){let r=this||{},l=e.call?e(r.p):e;return s(l.unshift?l.raw?i(l,[].slice.call(arguments,1),r.p):l.reduce((e,t)=>t?Object.assign(e,t.call?t(r.p):t):e,{}):l,t(r.target),r.g,r.o,r.k)}let u,d,f;p.bind({g:1});let b$1=p.bind({k:1});function h(e,t,r,l){n.p=t,u=e,d=r,f=l;}function m(e,t){let r=this||{};return function(){let l=arguments;function a(n,o){let c=Object.assign({},n),s=c.className||a.className;r.p=Object.assign({theme:d&&d()},c),r.o=/ *go\d+/g.test(s),c.className=p.apply(r,l)+(s?" "+s:""),t&&(c.ref=o);let i=c.as||e;return f&&i[0]&&f(c),u(i,c)}return t?t(a):a}}
+let e={data:""},t=t=>{if("undefined"!=typeof window){let e=t?t.querySelector("#_goober"):window._goober;return e||(e=(t||document.head).appendChild(document.createElement("style")),e.innerHTML=" ",e.id="_goober"),e.firstChild}return t||e},l=/(?:([A-Z0-9-%@]+) *:? *([^{;]+?);|([^;}{]*?) *{)|(})/gi,a=/\/\*[\s\S]*?\*\/|\s{2,}|\n/gm,n=(e,t)=>{let r,l="",a="",o="";for(let c in e){let s=e[c];"object"==typeof s?(r=t?t.replace(/([^,])+/g,e=>c.replace(/([^,])+/g,t=>/&/g.test(t)?t.replace(/&/g,e):e?e+" "+t:t)):c,a+="@"==c[0]?"f"==c[1]?n(s,c):c+"{"+n(s,"k"==c[1]?"":t)+"}":n(s,r)):"@"==c[0]&&"i"==c[1]?l=c+" "+s+";":o+=n.p?n.p(c.replace(/[A-Z]/g,"-$&").toLowerCase(),s):c.replace(/[A-Z]/g,"-$&").toLowerCase()+":"+s+";";}return o[0]?(r=t?t+"{"+o+"}":o,l+r+a):l+a},o={},c=e=>{let t="";for(let r in e)t+=r+("object"==typeof e[r]?c(e[r]):e[r]);return t},s=(e,t,r,s,i)=>{let p="object"==typeof e?c(e):e,u=o[p]||(o[p]="go"+p.split("").reduce((e,t)=>101*e+t.charCodeAt(0)>>>0,11));if(!o[u]){let t="object"==typeof e?e:(e=>{let t,r=[{}];for(;t=l.exec(e.replace(a,""));)t[4]&&r.shift(),t[3]?r.unshift(r[0][t[3]]=r[0][t[3]]||{}):t[4]||(r[0][t[1]]=t[2]);return r[0]})(e);o[u]=n(i?{["@keyframes "+u]:t}:t,r?"":"."+u);}return ((e,t,r)=>{-1==t.data.indexOf(e)&&(t.data=r?e+t.data:t.data+e);})(o[u],t,s),u},i=(e,t,r)=>e.reduce((e,l,a)=>{let o=t[a];if(o&&o.call){let e=o(r),t=e&&e.props&&e.props.className||/^go/.test(e)&&e;o=t?"."+t:e&&"object"==typeof e?e.props?"":n(e,""):e;}return e+l+(null==o?"":o)},"");function p(e){let r=this||{},l=e.call?e(r.p):e;return s(l.unshift?l.raw?i(l,[].slice.call(arguments,1),r.p):l.reduce((e,t)=>t?Object.assign(e,t.call?t(r.p):t):e,{}):l,t(r.target),r.g,r.o,r.k)}let u,d,f;p.bind({g:1});let b=p.bind({k:1});function h(e,t,r,l){n.p=t,u=e,d=r,f=l;}function m(e,t){let r=this||{};return function(){let l=arguments;function a(n,o){let c=Object.assign({},n),s=c.className||a.className;r.p=Object.assign({theme:d&&d()},c),r.o=/ *go\d+/g.test(s),c.className=p.apply(r,l)+(s?" "+s:""),t&&(c.ref=o);let i=c.as||e;return f&&i[0]&&f(c),u(i,c)}return t?t(a):a}}
 
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -1414,9 +1472,9 @@ function _templateObject() {
 
   return data;
 }
-var circleAnimation = /*#__PURE__*/b$1( /*#__PURE__*/_templateObject());
-var firstLineAnimation = /*#__PURE__*/b$1( /*#__PURE__*/_templateObject2());
-var secondLineAnimation = /*#__PURE__*/b$1( /*#__PURE__*/_templateObject3());
+var circleAnimation = /*#__PURE__*/b( /*#__PURE__*/_templateObject());
+var firstLineAnimation = /*#__PURE__*/b( /*#__PURE__*/_templateObject2());
+var secondLineAnimation = /*#__PURE__*/b( /*#__PURE__*/_templateObject3());
 var ErrorIcon = /*#__PURE__*/m('div')( /*#__PURE__*/_templateObject4(), function (p) {
   return p.primary || '#ff4b4b';
 }, circleAnimation, firstLineAnimation, function (p) {
@@ -1442,7 +1500,7 @@ function _templateObject$1() {
 
   return data;
 }
-var rotate = /*#__PURE__*/b$1( /*#__PURE__*/_templateObject$1());
+var rotate = /*#__PURE__*/b( /*#__PURE__*/_templateObject$1());
 var LoaderIcon = /*#__PURE__*/m('div')( /*#__PURE__*/_templateObject2$1(), function (p) {
   return p.secondary || '#e0e0e0';
 }, function (p) {
@@ -1478,8 +1536,8 @@ function _templateObject$2() {
 
   return data;
 }
-var circleAnimation$1 = /*#__PURE__*/b$1( /*#__PURE__*/_templateObject$2());
-var checkmarkAnimation = /*#__PURE__*/b$1( /*#__PURE__*/_templateObject2$2());
+var circleAnimation$1 = /*#__PURE__*/b( /*#__PURE__*/_templateObject$2());
+var checkmarkAnimation = /*#__PURE__*/b( /*#__PURE__*/_templateObject2$2());
 var CheckmarkIcon = /*#__PURE__*/m('div')( /*#__PURE__*/_templateObject3$1(), function (p) {
   return p.primary || '#61d345';
 }, circleAnimation$1, checkmarkAnimation, function (p) {
@@ -1537,7 +1595,7 @@ function _templateObject$4() {
 
   return data;
 }
-var enter = /*#__PURE__*/b$1( /*#__PURE__*/_templateObject$4());
+var enter = /*#__PURE__*/b( /*#__PURE__*/_templateObject$4());
 var AnimatedIconWrapper = /*#__PURE__*/m('div')( /*#__PURE__*/_templateObject2$4(), enter);
 
 function _templateObject4$1() {
@@ -1619,9 +1677,9 @@ var getAnimationStyle = function getAnimationStyle(position, visible) {
   var top = position.includes('top');
   var factor = top ? 1 : -1;
   return visible ? {
-    animation: b$1(_templateObject3$2(), enterAnimation(factor)) + " 0.35s cubic-bezier(.21,1.02,.73,1) forwards"
+    animation: b(_templateObject3$2(), enterAnimation(factor)) + " 0.35s cubic-bezier(.21,1.02,.73,1) forwards"
   } : {
-    animation: b$1(_templateObject4$1(), exitAnimation(factor)) + " 0.8s forwards cubic-bezier(.06,.71,.55,1)",
+    animation: b(_templateObject4$1(), exitAnimation(factor)) + " 0.8s forwards cubic-bezier(.06,.71,.55,1)",
     pointerEvents: 'none'
   };
 };
@@ -1712,25 +1770,106 @@ var Toaster = function Toaster(_ref) {
   }));
 };
 
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _typeof(o) {
+  "@babel/helpers - typeof";
+
+  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+    return typeof o;
+  } : function (o) {
+    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+  }, _typeof(o);
+}
+
+function _toPrimitive(input, hint) {
+  if (_typeof(input) !== "object" || input === null) return input;
+  var prim = input[Symbol.toPrimitive];
+  if (prim !== undefined) {
+    var res = prim.call(input, hint || "default");
+    if (_typeof(res) !== "object") return res;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return (hint === "string" ? String : Number)(input);
+}
+
+function _toPropertyKey(arg) {
+  var key = _toPrimitive(arg, "string");
+  return _typeof(key) === "symbol" ? key : String(key);
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor);
+  }
+}
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  Object.defineProperty(Constructor, "prototype", {
+    writable: false
+  });
+  return Constructor;
+}
+
 function _assertThisInitialized(self) {
   if (self === void 0) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
   }
-
   return self;
 }
 
-var assertThisInitialized = _assertThisInitialized;
-
-function _inheritsLoose(subClass, superClass) {
-  subClass.prototype = Object.create(superClass.prototype);
-  subClass.prototype.constructor = subClass;
-  subClass.__proto__ = superClass;
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+  return _setPrototypeOf(o, p);
 }
 
-var inheritsLoose = _inheritsLoose;
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  Object.defineProperty(subClass, "prototype", {
+    writable: false
+  });
+  if (superClass) _setPrototypeOf(subClass, superClass);
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  } else if (call !== void 0) {
+    throw new TypeError("Derived constructors may only return object or undefined");
+  }
+  return _assertThisInitialized(self);
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
 
 function _defineProperty(obj, key, value) {
+  key = _toPropertyKey(key);
   if (key in obj) {
     Object.defineProperty(obj, key, {
       value: value,
@@ -1741,19 +1880,16 @@ function _defineProperty(obj, key, value) {
   } else {
     obj[key] = value;
   }
-
   return obj;
 }
 
-var defineProperty = _defineProperty;
-
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 var DEFAULT_ZOOM_STEP = 0.3;
 var DEFAULT_LARGE_ZOOM = 4;
-
 function getXY(e) {
   var x = 0;
   var y = 0;
-
   if (e.touches && e.touches.length) {
     x = e.touches[0].pageX;
     y = e.touches[0].pageY;
@@ -1761,136 +1897,101 @@ function getXY(e) {
     x = e.pageX;
     y = e.pageY;
   }
-
   return {
     x: x,
     y: y
   };
 }
-
 function Cond(props) {
   if (!props.condition) return null;
   return /*#__PURE__*/react.createElement(react.Fragment, null, props.children);
 }
-
 var Lightbox = /*#__PURE__*/function (_React$Component) {
-  inheritsLoose(Lightbox, _React$Component);
-
+  _inherits(Lightbox, _React$Component);
+  var _super = _createSuper(Lightbox);
   function Lightbox() {
-    var _this$props$startInde, _this$props, _this$props2, _this$props2$images;
-
+    var _this$props$startInde, _this$props, _this$props2;
     var _this;
-
+    _classCallCheck(this, Lightbox);
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
-
-    _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
-
-    defineProperty(assertThisInitialized(_this), "initX", 0);
-
-    defineProperty(assertThisInitialized(_this), "initY", 0);
-
-    defineProperty(assertThisInitialized(_this), "lastX", 0);
-
-    defineProperty(assertThisInitialized(_this), "lastY", 0);
-
-    defineProperty(assertThisInitialized(_this), "_cont", /*#__PURE__*/react.createRef());
-
-    defineProperty(assertThisInitialized(_this), "state", {
+    _this = _super.call.apply(_super, [this].concat(args));
+    _defineProperty(_assertThisInitialized(_this), "initX", 0);
+    _defineProperty(_assertThisInitialized(_this), "initY", 0);
+    _defineProperty(_assertThisInitialized(_this), "lastX", 0);
+    _defineProperty(_assertThisInitialized(_this), "lastY", 0);
+    _defineProperty(_assertThisInitialized(_this), "_cont", /*#__PURE__*/react.createRef());
+    _defineProperty(_assertThisInitialized(_this), "state", {
       x: 0,
       y: 0,
       zoom: 1,
       rotate: 0,
       loading: true,
       moving: false,
-      current: (_this$props$startInde = (_this$props = _this.props) == null ? void 0 : _this$props.startIndex) != null ? _this$props$startInde : 0,
-      multi: (_this$props2 = _this.props) != null && (_this$props2$images = _this$props2.images) != null && _this$props2$images.length ? true : false
+      current: (_this$props$startInde = (_this$props = _this.props) === null || _this$props === void 0 ? void 0 : _this$props.startIndex) !== null && _this$props$startInde !== void 0 ? _this$props$startInde : 0,
+      multi: (_this$props2 = _this.props) !== null && _this$props2 !== void 0 && (_this$props2 = _this$props2.images) !== null && _this$props2 !== void 0 && _this$props2.length ? true : false
     });
-
-    defineProperty(assertThisInitialized(_this), "createTransform", function (x, y, zoom, rotate) {
-      return "translate3d(" + x + "px," + y + "px,0px) scale(" + zoom + ") rotate(" + rotate + "deg)";
+    _defineProperty(_assertThisInitialized(_this), "createTransform", function (x, y, zoom, rotate) {
+      return "translate3d(".concat(x, "px,").concat(y, "px,0px) scale(").concat(zoom, ") rotate(").concat(rotate, "deg)");
     });
-
-    defineProperty(assertThisInitialized(_this), "stopSideEffect", function (e) {
+    _defineProperty(_assertThisInitialized(_this), "stopSideEffect", function (e) {
       return e.stopPropagation();
     });
-
-    defineProperty(assertThisInitialized(_this), "getCurrentImage", function (s, p) {
+    _defineProperty(_assertThisInitialized(_this), "getCurrentImage", function (s, p) {
       var _p$image, _ref, _p$images$s$current$u, _p$images$s$current, _p$images;
-
-      if (!s.multi) return (_p$image = p.image) != null ? _p$image : "";
-      return (_ref = (_p$images$s$current$u = (_p$images$s$current = p.images[s.current]) == null ? void 0 : _p$images$s$current.url) != null ? _p$images$s$current$u : (_p$images = p.images) == null ? void 0 : _p$images[s.current]) != null ? _ref : "";
+      if (!s.multi) return (_p$image = p.image) !== null && _p$image !== void 0 ? _p$image : "";
+      return (_ref = (_p$images$s$current$u = (_p$images$s$current = p.images[s.current]) === null || _p$images$s$current === void 0 ? void 0 : _p$images$s$current.url) !== null && _p$images$s$current$u !== void 0 ? _p$images$s$current$u : (_p$images = p.images) === null || _p$images === void 0 ? void 0 : _p$images[s.current]) !== null && _ref !== void 0 ? _ref : "";
     });
-
-    defineProperty(assertThisInitialized(_this), "getCurrentTitle", function (s, p) {
-      var _p$title, _p$images$s$current$t, _p$images2, _p$images2$s$current;
-
-      if (!s.multi) return (_p$title = p.title) != null ? _p$title : "";
-      return (_p$images$s$current$t = (_p$images2 = p.images) == null ? void 0 : (_p$images2$s$current = _p$images2[s.current]) == null ? void 0 : _p$images2$s$current.title) != null ? _p$images$s$current$t : "";
+    _defineProperty(_assertThisInitialized(_this), "getCurrentTitle", function (s, p) {
+      var _p$title, _p$images$s$current$t, _p$images2;
+      if (!s.multi) return (_p$title = p.title) !== null && _p$title !== void 0 ? _p$title : "";
+      return (_p$images$s$current$t = (_p$images2 = p.images) === null || _p$images2 === void 0 || (_p$images2 = _p$images2[s.current]) === null || _p$images2 === void 0 ? void 0 : _p$images2.title) !== null && _p$images$s$current$t !== void 0 ? _p$images$s$current$t : "";
     });
-
-    defineProperty(assertThisInitialized(_this), "resetZoom", function () {
+    _defineProperty(_assertThisInitialized(_this), "resetZoom", function () {
       return _this.setState({
         x: 0,
         y: 0,
         zoom: 1
       });
     });
-
-    defineProperty(assertThisInitialized(_this), "shockZoom", function (e) {
-      var _this$_cont$current;
-
+    _defineProperty(_assertThisInitialized(_this), "shockZoom", function (e) {
+      var _this$_cont$current, _this$_cont$current$g;
       var _this$props3 = _this.props,
-          _this$props3$zoomStep = _this$props3.zoomStep,
-          zoomStep = _this$props3$zoomStep === void 0 ? DEFAULT_ZOOM_STEP : _this$props3$zoomStep,
-          _this$props3$allowZoo = _this$props3.allowZoom,
-          allowZoom = _this$props3$allowZoo === void 0 ? true : _this$props3$allowZoo,
-          _this$props3$doubleCl = _this$props3.doubleClickZoom,
-          doubleClickZoom = _this$props3$doubleCl === void 0 ? DEFAULT_LARGE_ZOOM : _this$props3$doubleCl;
+        _this$props3$zoomStep = _this$props3.zoomStep,
+        zoomStep = _this$props3$zoomStep === void 0 ? DEFAULT_ZOOM_STEP : _this$props3$zoomStep,
+        _this$props3$allowZoo = _this$props3.allowZoom,
+        allowZoom = _this$props3$allowZoo === void 0 ? true : _this$props3$allowZoo,
+        _this$props3$doubleCl = _this$props3.doubleClickZoom,
+        doubleClickZoom = _this$props3$doubleCl === void 0 ? DEFAULT_LARGE_ZOOM : _this$props3$doubleCl;
       if (!allowZoom || !doubleClickZoom) return false;
-
       _this.stopSideEffect(e);
-
       if (_this.state.zoom > 1) return _this.resetZoom();
-
       var _z = (zoomStep < 1 ? Math.ceil(doubleClickZoom / zoomStep) : zoomStep) * zoomStep;
-
       var _xy = getXY(e);
-
-      var _cbr = (_this$_cont$current = _this._cont.current) == null ? void 0 : _this$_cont$current.getBoundingClientRect == null ? void 0 : _this$_cont$current.getBoundingClientRect();
-
+      var _cbr = (_this$_cont$current = _this._cont.current) === null || _this$_cont$current === void 0 || (_this$_cont$current$g = _this$_cont$current.getBoundingClientRect) === null || _this$_cont$current$g === void 0 ? void 0 : _this$_cont$current$g.call(_this$_cont$current);
       var _ccx = _cbr.x + _cbr.width / 2;
-
       var _ccy = _cbr.y + _cbr.height / 2;
-
       var x = (_xy.x - _ccx) * -1 * _z;
       var y = (_xy.y - _ccy) * -1 * _z;
-
       _this.setState({
         x: x,
         y: y,
         zoom: _z
       });
     });
-
-    defineProperty(assertThisInitialized(_this), "navigateImage", function (direction, e) {
+    _defineProperty(_assertThisInitialized(_this), "navigateImage", function (direction, e) {
       _this.stopSideEffect(e);
-
       var current = 0;
-
       switch (direction) {
         case "next":
           current = _this.state.current + 1;
           break;
-
         case "prev":
           current = _this.state.current - 1;
           break;
       }
-
       if (current >= _this.props.images.length) current = 0;else if (current < 0) current = _this.props.images.length - 1;
-
       _this.setState({
         current: current,
         x: 0,
@@ -1900,49 +2001,39 @@ var Lightbox = /*#__PURE__*/function (_React$Component) {
         loading: true
       });
     });
-
-    defineProperty(assertThisInitialized(_this), "startMove", function (e) {
+    _defineProperty(_assertThisInitialized(_this), "startMove", function (e) {
       if (_this.state.zoom <= 1) return false;
-
       _this.setState({
         moving: true
       });
-
       var xy = getXY(e);
       _this.initX = xy.x - _this.lastX;
       _this.initY = xy.y - _this.lastY;
     });
-
-    defineProperty(assertThisInitialized(_this), "duringMove", function (e) {
+    _defineProperty(_assertThisInitialized(_this), "duringMove", function (e) {
       if (!_this.state.moving) return false;
       var xy = getXY(e);
       _this.lastX = xy.x - _this.initX;
       _this.lastY = xy.y - _this.initY;
-
       _this.setState({
         x: xy.x - _this.initX,
         y: xy.y - _this.initY
       });
     });
-
-    defineProperty(assertThisInitialized(_this), "endMove", function (e) {
+    _defineProperty(_assertThisInitialized(_this), "endMove", function (e) {
       return _this.setState({
         moving: false
       });
     });
-
-    defineProperty(assertThisInitialized(_this), "applyZoom", function (type) {
+    _defineProperty(_assertThisInitialized(_this), "applyZoom", function (type) {
       var _this$props$zoomStep = _this.props.zoomStep,
-          zoomStep = _this$props$zoomStep === void 0 ? DEFAULT_ZOOM_STEP : _this$props$zoomStep;
-
+        zoomStep = _this$props$zoomStep === void 0 ? DEFAULT_ZOOM_STEP : _this$props$zoomStep;
       switch (type) {
         case "in":
           _this.setState({
             zoom: _this.state.zoom + zoomStep
           });
-
           break;
-
         case "out":
           var newZoom = _this.state.zoom - zoomStep;
           if (newZoom < 1) break;else if (newZoom === 1) _this.setState({
@@ -1953,35 +2044,27 @@ var Lightbox = /*#__PURE__*/function (_React$Component) {
             zoom: newZoom
           });
           break;
-
         case "reset":
           _this.resetZoom();
-
           break;
       }
     });
-
-    defineProperty(assertThisInitialized(_this), "applyRotate", function (type) {
+    _defineProperty(_assertThisInitialized(_this), "applyRotate", function (type) {
       switch (type) {
         case "cw":
           _this.setState({
             rotate: _this.state.rotate + 90
           });
-
           break;
-
         case "acw":
           _this.setState({
             rotate: _this.state.rotate - 90
           });
-
           break;
       }
     });
-
-    defineProperty(assertThisInitialized(_this), "reset", function (e) {
+    _defineProperty(_assertThisInitialized(_this), "reset", function (e) {
       _this.stopSideEffect(e);
-
       _this.setState({
         x: 0,
         y: 0,
@@ -1989,104 +2072,90 @@ var Lightbox = /*#__PURE__*/function (_React$Component) {
         rotate: 0
       });
     });
-
-    defineProperty(assertThisInitialized(_this), "exit", function (e) {
+    _defineProperty(_assertThisInitialized(_this), "exit", function (e) {
       if (typeof _this.props.onClose === "function") return _this.props.onClose(e);
       console.error("No Exit function passed on prop: onClose. Clicking the close button will do nothing");
     });
-
-    defineProperty(assertThisInitialized(_this), "shouldShowReset", function () {
+    _defineProperty(_assertThisInitialized(_this), "shouldShowReset", function () {
       return _this.state.x || _this.state.y || _this.state.zoom !== 1 || _this.state.rotate !== 0;
     });
-
-    defineProperty(assertThisInitialized(_this), "canvasClick", function (e) {
+    _defineProperty(_assertThisInitialized(_this), "canvasClick", function (e) {
       var _this$props$clickOuts = _this.props.clickOutsideToExit,
-          clickOutsideToExit = _this$props$clickOuts === void 0 ? true : _this$props$clickOuts;
+        clickOutsideToExit = _this$props$clickOuts === void 0 ? true : _this$props$clickOuts;
       if (clickOutsideToExit && _this.state.zoom <= 1) return _this.exit(e);
     });
-
-    defineProperty(assertThisInitialized(_this), "keyboardNavigation", function (e) {
+    _defineProperty(_assertThisInitialized(_this), "keyboardNavigation", function (e) {
       var _this$props4 = _this.props,
-          _this$props4$allowZoo = _this$props4.allowZoom,
-          allowZoom = _this$props4$allowZoo === void 0 ? true : _this$props4$allowZoo,
-          _this$props4$allowRes = _this$props4.allowReset,
-          allowReset = _this$props4$allowRes === void 0 ? true : _this$props4$allowRes;
+        _this$props4$allowZoo = _this$props4.allowZoom,
+        allowZoom = _this$props4$allowZoo === void 0 ? true : _this$props4$allowZoo,
+        _this$props4$allowRes = _this$props4.allowReset,
+        allowReset = _this$props4$allowRes === void 0 ? true : _this$props4$allowRes;
       var _this$state = _this.state,
-          multi = _this$state.multi,
-          x = _this$state.x,
-          y = _this$state.y,
-          zoom = _this$state.zoom;
-
+        multi = _this$state.multi,
+        x = _this$state.x,
+        y = _this$state.y,
+        zoom = _this$state.zoom;
       switch (e.key) {
         case "ArrowLeft":
           if (multi && zoom === 1) _this.navigateImage("prev", e);else if (zoom > 1) _this.setState({
             x: x - 20
           });
           break;
-
         case "ArrowRight":
           if (multi && zoom === 1) _this.navigateImage("next", e);else if (zoom > 1) _this.setState({
             x: x + 20
           });
           break;
-
         case "ArrowUp":
           if (zoom > 1) _this.setState({
             y: y + 20
           });
           break;
-
         case "ArrowDown":
           if (zoom > 1) _this.setState({
             y: y - 20
           });
           break;
-
         case "+":
           if (allowZoom) _this.applyZoom("in");
           break;
-
         case "-":
           if (allowZoom) _this.applyZoom("out");
           break;
-
         case "Escape":
           if (allowReset && _this.shouldShowReset()) _this.reset(e);else _this.exit(e);
           break;
       }
     });
-
     return _this;
   }
-
-  var _proto = Lightbox.prototype;
-
-  _proto.componentDidMount = function componentDidMount() {
-    document.body.classList.add("lb-open-lightbox");
-    var _this$props$keyboardI = this.props.keyboardInteraction,
+  _createClass(Lightbox, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      document.body.classList.add("lb-open-lightbox");
+      var _this$props$keyboardI = this.props.keyboardInteraction,
         keyboardInteraction = _this$props$keyboardI === void 0 ? true : _this$props$keyboardI;
-    if (keyboardInteraction) document.addEventListener("keyup", this.keyboardNavigation);
-  };
-
-  _proto.componentWillUnmount = function componentWillUnmount() {
-    document.body.classList.remove("lb-open-lightbox");
-    var _this$props$keyboardI2 = this.props.keyboardInteraction,
-        keyboardInteraction = _this$props$keyboardI2 === void 0 ? true : _this$props$keyboardI2;
-    if (keyboardInteraction) document.removeEventListener("keyup", this.keyboardNavigation);
-  };
-
-  _proto.render = function render() {
-    var _this2 = this;
-
-    var image = this.getCurrentImage(this.state, this.props);
-    var title = this.getCurrentTitle(this.state, this.props);
-
-    if (!image) {
-      console.warn("Not showing lightbox because no image(s) was supplied");
-      return null;
+      if (keyboardInteraction) document.addEventListener("keyup", this.keyboardNavigation);
     }
-
-    var _this$props5 = this.props,
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      document.body.classList.remove("lb-open-lightbox");
+      var _this$props$keyboardI2 = this.props.keyboardInteraction,
+        keyboardInteraction = _this$props$keyboardI2 === void 0 ? true : _this$props$keyboardI2;
+      if (keyboardInteraction) document.removeEventListener("keyup", this.keyboardNavigation);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+      var image = this.getCurrentImage(this.state, this.props);
+      var title = this.getCurrentTitle(this.state, this.props);
+      if (!image) {
+        console.warn("Not showing lightbox because no image(s) was supplied");
+        return null;
+      }
+      var _this$props5 = this.props,
         _this$props5$allowZoo = _this$props5.allowZoom,
         allowZoom = _this$props5$allowZoo === void 0 ? true : _this$props5$allowZoo,
         _this$props5$allowRot = _this$props5.allowRotate,
@@ -2097,7 +2166,7 @@ var Lightbox = /*#__PURE__*/function (_React$Component) {
         showTitle = _this$props5$showTitl === void 0 ? true : _this$props5$showTitl,
         _this$props5$allowRes = _this$props5.allowReset,
         allowReset = _this$props5$allowRes === void 0 ? true : _this$props5$allowRes;
-    var _this$state2 = this.state,
+      var _this$state2 = this.state,
         x = _this$state2.x,
         y = _this$state2.y,
         zoom = _this$state2.zoom,
@@ -2105,159 +2174,157 @@ var Lightbox = /*#__PURE__*/function (_React$Component) {
         multi = _this$state2.multi,
         loading = _this$state2.loading,
         moving = _this$state2.moving;
-
-    var _reset = allowReset && this.shouldShowReset();
-
-    return /*#__PURE__*/react.createElement("div", {
-      className: "lb-container"
-    }, /*#__PURE__*/react.createElement("div", {
-      className: "lb-header",
-      style: {
-        justifyContent: buttonAlign
-      }
-    }, /*#__PURE__*/react.createElement(Cond, {
-      condition: showTitle && title
-    }, /*#__PURE__*/react.createElement("div", {
-      className: "lb-title",
-      style: {
-        display: buttonAlign === "center" ? "none" : "flex",
-        order: buttonAlign === "flex-start" ? "2" : "unset"
-      }
-    }, /*#__PURE__*/react.createElement("span", {
-      title: title,
-      style: {
-        textAlign: buttonAlign === "flex-start" ? "right" : "left"
-      }
-    }, title))), /*#__PURE__*/react.createElement(Cond, {
-      condition: buttonAlign === "center" || _reset
-    }, /*#__PURE__*/react.createElement("div", {
-      title: "Reset",
-      style: {
-        order: buttonAlign === "flex-start" ? "1" : "unset"
-      },
-      className: "lb-button lb-icon-reset lb-hide-mobile reload " + (_reset ? "" : "disabled"),
-      onClick: this.reset
-    })), /*#__PURE__*/react.createElement(Cond, {
-      condition: multi
-    }, /*#__PURE__*/react.createElement("div", {
-      title: "Previous",
-      className: "lb-button lb-icon-arrow prev lb-hide-mobile",
-      onClick: function onClick(e) {
-        return _this2.navigateImage("prev", e);
-      }
-    }), /*#__PURE__*/react.createElement("div", {
-      title: "Next",
-      className: "lb-button lb-icon-arrow next lb-hide-mobile",
-      onClick: function onClick(e) {
-        return _this2.navigateImage("next", e);
-      }
-    })), /*#__PURE__*/react.createElement(Cond, {
-      condition: allowZoom
-    }, /*#__PURE__*/react.createElement("div", {
-      title: "Zoom In",
-      className: "lb-button lb-icon-zoomin zoomin",
-      onClick: function onClick() {
-        return _this2.applyZoom("in");
-      }
-    }), /*#__PURE__*/react.createElement("div", {
-      title: "Zoom Out",
-      className: "lb-button lb-icon-zoomout zoomout " + (zoom <= 1 ? "disabled" : ""),
-      onClick: function onClick() {
-        return _this2.applyZoom("out");
-      }
-    })), /*#__PURE__*/react.createElement(Cond, {
-      condition: allowRotate
-    }, /*#__PURE__*/react.createElement("div", {
-      title: "Rotate left",
-      className: "lb-button lb-icon-rotate rotatel",
-      onClick: function onClick() {
-        return _this2.applyRotate("acw");
-      }
-    }), /*#__PURE__*/react.createElement("div", {
-      title: "Rotate right",
-      className: "lb-button lb-icon-rotate rotater",
-      onClick: function onClick() {
-        return _this2.applyRotate("cw");
-      }
-    })), /*#__PURE__*/react.createElement("div", {
-      title: "Close",
-      className: "lb-button lb-icon-close close",
-      style: {
-        order: buttonAlign === "flex-start" ? "-1" : "unset"
-      },
-      onClick: function onClick(e) {
-        return _this2.exit(e);
-      }
-    })), /*#__PURE__*/react.createElement("div", {
-      className: "lb-canvas" + (loading ? " lb-loading" : ""),
-      ref: this._cont,
-      onClick: function onClick(e) {
-        return _this2.canvasClick(e);
-      }
-    }, /*#__PURE__*/react.createElement("img", {
-      draggable: "false",
-      style: {
-        transform: this.createTransform(x, y, zoom, rotate),
-        cursor: zoom > 1 ? "grab" : "unset",
-        transition: moving ? "none" : "all 0.1s"
-      },
-      onMouseDown: function onMouseDown(e) {
-        return _this2.startMove(e);
-      },
-      onTouchStart: function onTouchStart(e) {
-        return _this2.startMove(e);
-      },
-      onMouseMove: function onMouseMove(e) {
-        return _this2.duringMove(e);
-      },
-      onTouchMove: function onTouchMove(e) {
-        return _this2.duringMove(e);
-      },
-      onMouseUp: function onMouseUp(e) {
-        return _this2.endMove(e);
-      },
-      onMouseLeave: function onMouseLeave(e) {
-        return _this2.endMove(e);
-      },
-      onTouchEnd: function onTouchEnd(e) {
-        return _this2.endMove(e);
-      },
-      onClick: function onClick(e) {
-        return _this2.stopSideEffect(e);
-      },
-      onDoubleClick: function onDoubleClick(e) {
-        return _this2.shockZoom(e);
-      },
-      onLoad: function onLoad(e) {
-        return _this2.setState({
-          loading: false
-        });
-      },
-      className: "lb-img" + (loading ? " lb-loading" : ""),
-      title: title,
-      src: image,
-      alt: title
-    }), /*#__PURE__*/react.createElement("div", {
-      className: "mobile-controls lb-show-mobile"
-    }, multi ? /*#__PURE__*/react.createElement("div", {
-      title: "Previous",
-      className: "lb-button lb-icon-arrow prev",
-      onClick: function onClick(e) {
-        return _this2.navigateImage("prev", e);
-      }
-    }) : null, _reset ? /*#__PURE__*/react.createElement("div", {
-      title: "Reset",
-      className: "lb-button lb-icon-reset reload",
-      onClick: this.reset
-    }) : null, multi ? /*#__PURE__*/react.createElement("div", {
-      title: "Next",
-      className: "lb-button lb-icon-arrow next",
-      onClick: function onClick(e) {
-        return _this2.navigateImage("next", e);
-      }
-    }) : null)));
-  };
-
+      var _reset = allowReset && this.shouldShowReset();
+      return /*#__PURE__*/react.createElement("div", {
+        className: "lb-container"
+      }, /*#__PURE__*/react.createElement("div", {
+        className: "lb-header",
+        style: {
+          justifyContent: buttonAlign
+        }
+      }, /*#__PURE__*/react.createElement(Cond, {
+        condition: showTitle && title
+      }, /*#__PURE__*/react.createElement("div", {
+        className: "lb-title",
+        style: {
+          display: buttonAlign === "center" ? "none" : "flex",
+          order: buttonAlign === "flex-start" ? "2" : "unset"
+        }
+      }, /*#__PURE__*/react.createElement("span", {
+        title: title,
+        style: {
+          textAlign: buttonAlign === "flex-start" ? "right" : "left"
+        }
+      }, title))), /*#__PURE__*/react.createElement(Cond, {
+        condition: buttonAlign === "center" || _reset
+      }, /*#__PURE__*/react.createElement("div", {
+        title: "Reset",
+        style: {
+          order: buttonAlign === "flex-start" ? "1" : "unset"
+        },
+        className: "lb-button lb-icon-reset lb-hide-mobile reload ".concat(_reset ? "" : "disabled"),
+        onClick: this.reset
+      })), /*#__PURE__*/react.createElement(Cond, {
+        condition: multi
+      }, /*#__PURE__*/react.createElement("div", {
+        title: "Previous",
+        className: "lb-button lb-icon-arrow prev lb-hide-mobile",
+        onClick: function onClick(e) {
+          return _this2.navigateImage("prev", e);
+        }
+      }), /*#__PURE__*/react.createElement("div", {
+        title: "Next",
+        className: "lb-button lb-icon-arrow next lb-hide-mobile",
+        onClick: function onClick(e) {
+          return _this2.navigateImage("next", e);
+        }
+      })), /*#__PURE__*/react.createElement(Cond, {
+        condition: allowZoom
+      }, /*#__PURE__*/react.createElement("div", {
+        title: "Zoom In",
+        className: "lb-button lb-icon-zoomin zoomin",
+        onClick: function onClick() {
+          return _this2.applyZoom("in");
+        }
+      }), /*#__PURE__*/react.createElement("div", {
+        title: "Zoom Out",
+        className: "lb-button lb-icon-zoomout zoomout ".concat(zoom <= 1 ? "disabled" : ""),
+        onClick: function onClick() {
+          return _this2.applyZoom("out");
+        }
+      })), /*#__PURE__*/react.createElement(Cond, {
+        condition: allowRotate
+      }, /*#__PURE__*/react.createElement("div", {
+        title: "Rotate left",
+        className: "lb-button lb-icon-rotate rotatel",
+        onClick: function onClick() {
+          return _this2.applyRotate("acw");
+        }
+      }), /*#__PURE__*/react.createElement("div", {
+        title: "Rotate right",
+        className: "lb-button lb-icon-rotate rotater",
+        onClick: function onClick() {
+          return _this2.applyRotate("cw");
+        }
+      })), /*#__PURE__*/react.createElement("div", {
+        title: "Close",
+        className: "lb-button lb-icon-close close",
+        style: {
+          order: buttonAlign === "flex-start" ? "-1" : "unset"
+        },
+        onClick: function onClick(e) {
+          return _this2.exit(e);
+        }
+      })), /*#__PURE__*/react.createElement("div", {
+        className: "lb-canvas".concat(loading ? " lb-loading" : ""),
+        ref: this._cont,
+        onClick: function onClick(e) {
+          return _this2.canvasClick(e);
+        }
+      }, /*#__PURE__*/react.createElement("img", {
+        draggable: "false",
+        style: {
+          transform: this.createTransform(x, y, zoom, rotate),
+          cursor: zoom > 1 ? "grab" : "unset",
+          transition: moving ? "none" : "all 0.1s"
+        },
+        onMouseDown: function onMouseDown(e) {
+          return _this2.startMove(e);
+        },
+        onTouchStart: function onTouchStart(e) {
+          return _this2.startMove(e);
+        },
+        onMouseMove: function onMouseMove(e) {
+          return _this2.duringMove(e);
+        },
+        onTouchMove: function onTouchMove(e) {
+          return _this2.duringMove(e);
+        },
+        onMouseUp: function onMouseUp(e) {
+          return _this2.endMove(e);
+        },
+        onMouseLeave: function onMouseLeave(e) {
+          return _this2.endMove(e);
+        },
+        onTouchEnd: function onTouchEnd(e) {
+          return _this2.endMove(e);
+        },
+        onClick: function onClick(e) {
+          return _this2.stopSideEffect(e);
+        },
+        onDoubleClick: function onDoubleClick(e) {
+          return _this2.shockZoom(e);
+        },
+        onLoad: function onLoad(e) {
+          return _this2.setState({
+            loading: false
+          });
+        },
+        className: "lb-img".concat(loading ? " lb-loading" : ""),
+        title: title,
+        src: image,
+        alt: title
+      }), /*#__PURE__*/react.createElement("div", {
+        className: "mobile-controls lb-show-mobile"
+      }, multi ? /*#__PURE__*/react.createElement("div", {
+        title: "Previous",
+        className: "lb-button lb-icon-arrow prev",
+        onClick: function onClick(e) {
+          return _this2.navigateImage("prev", e);
+        }
+      }) : null, _reset ? /*#__PURE__*/react.createElement("div", {
+        title: "Reset",
+        className: "lb-button lb-icon-reset reload",
+        onClick: this.reset
+      }) : null, multi ? /*#__PURE__*/react.createElement("div", {
+        title: "Next",
+        className: "lb-button lb-icon-arrow next",
+        onClick: function onClick(e) {
+          return _this2.navigateImage("next", e);
+        }
+      }) : null)));
+    }
+  }]);
   return Lightbox;
 }(react.Component);
 
@@ -2285,42 +2352,15 @@ function transformSize(b) {
   }
   return size.toFixed(2) + unit
 }
-// 判断类型
-function judgmentType(type) {
-  const str = Object.prototype.toString.call(type);
-  return str.match(/\[object (\S*)\]/)[1]
-}
 
-// 简化版模板语法  ${}
-function templateHandle(template = '', data = {}) {
-  const templateReg = new RegExp(/(\$\{.*?\})/g);
-  const matchList = template.match(templateReg) || [];
-  const strReg = new RegExp(/\$\{(\S*)\}/);
-  matchList.forEach(el => {
-    const key = el.match(strReg)[1];
-    const value = data[key] || '';
-    let tempStr = '';
-    if (judgmentType(value) === 'Array') {
-      tempStr = value.join('\n');
-    } else {
-      tempStr = value;
-    }
-    template = template.replace(el, tempStr);
-  });
-  return template
-}
+var transformSize_1 = transformSize;
 
-var utils$1 = {
-  transformSize,
-  judgmentType,
-  templateHandle
-};
-
+// 图片预览
 var ImgBox = function ImgBox(props) {
   var _useState = react.useState(false),
-      isShow = _useState[0],
-      updateIsShow = _useState[1];
-
+    _useState2 = _slicedToArray(_useState, 2),
+    isShow = _useState2[0],
+    updateIsShow = _useState2[1];
   return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement("img", {
     className: "thumbnail",
     src: props.image,
@@ -2336,44 +2376,38 @@ var ImgBox = function ImgBox(props) {
     image: props.image
   }) : null);
 };
-
 var App = function App() {
-  var _useState2 = react.useState([]),
-      images = _useState2[0],
-      updateImages = _useState2[1];
-
   var _useState3 = react.useState([]),
-      downloads = _useState3[0],
-      updateDownloads = _useState3[1];
-
-  var _useState4 = react.useState(''),
-      quality = _useState4[0],
-      updateQuality = _useState4[1]; // 最大同时上传100个，单个文件最大100mb
-
-
+    _useState4 = _slicedToArray(_useState3, 2),
+    images = _useState4[0],
+    updateImages = _useState4[1];
+  var _useState5 = react.useState([]),
+    _useState6 = _slicedToArray(_useState5, 2),
+    downloads = _useState6[0],
+    updateDownloads = _useState6[1];
+  var _useState7 = react.useState(''),
+    _useState8 = _slicedToArray(_useState7, 2),
+    quality = _useState8[0],
+    updateQuality = _useState8[1];
+  // 最大同时上传100个，单个文件最大100mb
   var maxNumber = 100,
-      maxFileSize = 1024 * 1024 * 100;
-
+    maxFileSize = 1024 * 1024 * 100;
   function onChange(imageList, addUpdateIndex) {
     updateImages(imageList);
   }
-
   function onError(err) {
-    if (err != null && err.maxNumber) {
+    if (err !== null && err !== void 0 && err.maxNumber) {
       alert('超出最大上传数量限制');
     }
   }
-
   function onInputChange(e) {
     updateQuality(e.target.value);
   }
-
   function onUploadHandle() {
     if (!+quality && quality) {
       toast.error('jpg/png需要设置正确的压缩图片质量，svg会忽略该选项');
       return;
     }
-
     var formData = new FormData();
     formData.append('quality', +quality);
     images.forEach(function (_ref) {
@@ -2397,7 +2431,6 @@ var App = function App() {
       error: /*#__PURE__*/react.createElement("strong", null, "\u538B\u7F29\u5931\u8D25")
     });
   }
-
   return /*#__PURE__*/react.createElement("div", {
     className: "container"
   }, /*#__PURE__*/react.createElement("h1", null, "\u56FE\u7247\u538B\u7F29"), /*#__PURE__*/react.createElement(_default, {
@@ -2410,16 +2443,16 @@ var App = function App() {
     dataURLKey: "files"
   }, function (_ref2) {
     var imageList = _ref2.imageList,
-        onImageUpload = _ref2.onImageUpload,
-        onImageRemoveAll = _ref2.onImageRemoveAll,
-        onImageUpdate = _ref2.onImageUpdate,
-        onImageRemove = _ref2.onImageRemove,
-        isDragging = _ref2.isDragging,
-        dragProps = _ref2.dragProps;
+      onImageUpload = _ref2.onImageUpload,
+      onImageRemoveAll = _ref2.onImageRemoveAll,
+      onImageUpdate = _ref2.onImageUpdate,
+      onImageRemove = _ref2.onImageRemove,
+      isDragging = _ref2.isDragging,
+      dragProps = _ref2.dragProps;
     return /*#__PURE__*/react.createElement("div", {
       className: "upload-box"
-    }, /*#__PURE__*/react.createElement("div", _extends_1({
-      className: "upload-btn " + (isDragging ? 'drop' : ''),
+    }, /*#__PURE__*/react.createElement("div", _extends$1({
+      className: "upload-btn ".concat(isDragging ? 'drop' : ''),
       onClick: onImageUpload
     }, dragProps), "\u70B9\u51FB\u6216\u8005\u62D6\u62FD\u56FE\u7247\u5230\u8FD9\u91CC\uFF0C\u652F\u6301jpg/png/svg\u538B\u7F29"), /*#__PURE__*/react.createElement("ol", {
       className: "upload-list"
@@ -2434,7 +2467,7 @@ var App = function App() {
         className: "name"
       }, image.file.name), /*#__PURE__*/react.createElement("div", {
         className: "size"
-      }, utils$1.transformSize(image.file.size)), /*#__PURE__*/react.createElement("div", {
+      }, transformSize_1(image.file.size)), /*#__PURE__*/react.createElement("div", {
         className: "handle"
       }, /*#__PURE__*/react.createElement("button", {
         onClick: function onClick() {
@@ -2478,5 +2511,4 @@ var App = function App() {
     }, file.size));
   })), /*#__PURE__*/react.createElement(Toaster, null));
 };
-
 reactDom.render( /*#__PURE__*/react.createElement(App, null), document.querySelector('#app'));

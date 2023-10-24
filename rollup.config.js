@@ -16,7 +16,7 @@ export default {
   input: pkg.source,
   output: {
     file: pkg.output,
-    format: 'esm',
+    format: 'es',
     sourcemap: false
   },
   plugins: [
@@ -31,6 +31,7 @@ export default {
     pluginCommonjs(),
     pluginNodeResolve(),
     pluginReplace({
+      preventAssignment: true,
       'process.env.NODE_ENV': JSON.stringify( 'production' )
     }),
     pluginImportCss(),

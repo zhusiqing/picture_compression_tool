@@ -163,6 +163,7 @@ yarn serve
 - [x] 增加本地web版可视化页面工具
 - [x] 目前的压缩后统一转换成.jpg格式，后续支持png压缩
 - [x] 支持压缩svg格式，采用```svgo```压缩
+- [x] 支持import方式导入
 - [ ] 命令行增加png转jpg，jpg转png
 - [ ] web版增加png和jpg之间互转
 - [ ] 优化可视化页面视觉效果
